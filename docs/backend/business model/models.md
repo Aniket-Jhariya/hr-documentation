@@ -4,9 +4,7 @@ sidebar_position: 2
 
 # Models
 
-## Models
-
-### `Service`
+### Service
 Defines services offered by the platform with different pricing models.
 
 #### Fields:
@@ -21,7 +19,7 @@ Defines services offered by the platform with different pricing models.
 
 ---
 
-### `BusinessModel`
+### BusinessModel
 Represents different business models under which services are offered.
 
 #### Fields:
@@ -33,7 +31,7 @@ Represents different business models under which services are offered.
 
 ---
 
-### `CreditTransaction`
+### CreditTransaction
 Tracks credit consumption within an organization.
 
 #### Fields:
@@ -49,7 +47,7 @@ Tracks credit consumption within an organization.
 
 ---
 
-### `CreditAddition`
+### CreditAddition
 Tracks credits added to an organization’s account.
 
 #### Fields:
@@ -61,7 +59,7 @@ Tracks credits added to an organization’s account.
 
 ---
 
-### `SubscriptionPlan`
+### SubscriptionPlan
 Defines subscription plans available to organizations.
 
 #### Fields:
@@ -72,7 +70,7 @@ Defines subscription plans available to organizations.
 
 ---
 
-### `OrganizationSubscription`
+### OrganizationSubscription
 Tracks active subscription plans for organizations.
 
 #### Fields:
@@ -83,7 +81,7 @@ Tracks active subscription plans for organizations.
 
 ---
 
-### `OrganizationService`
+### OrganizationService
 Tracks negotiated service agreements between an organization and the platform.
 
 #### Fields:
@@ -99,7 +97,7 @@ Tracks negotiated service agreements between an organization and the platform.
 
 ---
 
-### `FeatureUsage`
+### FeatureUsage
 Tracks the usage of features under a Pay-Per-Use model.
 
 #### Fields:
@@ -114,7 +112,7 @@ Tracks the usage of features under a Pay-Per-Use model.
 
 ---
 
-### `Invoice`
+### Invoice
 Stores billing details for organizations.
 
 #### Fields:

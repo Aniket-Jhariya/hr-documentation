@@ -4,30 +4,6 @@ sidebar_position: 1
 
 # Endpoints
 
-### `users/ `
-- **View:** UserViewSet
-- Manages CRUD operations of users in the application
-
-### `organizations/ `
-- **View:** OrganizationViewSet
-- Manages CRUD operations of organizations in the application
-
-### `roles/ `
-- **View:** RolesViewSet
-- Manages CRUD operations of roles in the application
-
-### `delete/ `
-- **View:** UserDeleteViewSet
-- Manages deleting operations of users in the application
-    |Response Code|Description|
-    |---|---|
-    |200|SUCCESS: User deleted|
-    |404|FAIL: User not found|
-
-### `demo/ `
-- **View:** UserDeleteViewSet
-- Manages CRUD operations of demos in the application
-
 ### `request-demo/ `
 - **View:** RequestdDemoViewSet
 - Adds demo requests.
@@ -330,3 +306,71 @@ sidebar_position: 1
     |201|SUCCESS: Organization registered|
     |400|FAIL: Duplicate entry(contact/email)/Invalid input format|
     
+## Viewsets
+
+### `RolesViewSet`
+Handles CRUD operations for the `Roles` model.
+
+**Purpose:**
+- Manages roles within the system.
+
+**Behavior:**
+- Retrieves all roles for `list` and `retrieve` actions.
+- Uses `RolesSerializer` for serialization and deserialization.
+
+
+
+### `DemoRequestViewSet`
+Handles CRUD operations for the `DemoRequest` model.
+
+**Purpose:**
+- Manages demo requests submitted by users.
+
+**Behavior:**
+- Restricts access to authenticated super admins.
+- Retrieves all demo requests for `list` and `retrieve` actions.
+- Uses `DemoRequestSerializer` for serialization and deserialization.
+
+
+
+### `OrganizationViewSet`
+Handles CRUD operations for the `Organization` model.
+
+**Purpose:**
+- Manages organizations within the system.
+
+**Behavior:**
+- Restricts access to authenticated users.
+- Filters organizations based on the authenticated user's organization ID.
+- Returns organizations belonging to the user's organization or an empty queryset if the user is not authenticated.
+- Uses `OrganizationSerializer` for serialization and deserialization.
+
+
+
+### `UserViewSet`
+Handles CRUD operations for the `MyUser` model.
+
+**Purpose:**
+- Manages user accounts within the system.
+- Restricts access to admin users.
+
+**Behavior:**
+- Retrieves all users for `list` and `retrieve` actions.
+- Uses `BasicUserDetailSerializer` for serialization and deserialization.
+
+
+
+### `UserDeleteViewSet`
+Handles deletion of multiple `MyUser` objects.
+
+**Purpose:**
+- Manages bulk deletion of user accounts.
+
+**Behavior:**
+- Restricts access to authenticated admin users.
+- Deletes multiple users based on `user_ids` provided in query parameters.
+
+|Response Code|Description|
+|---|---|
+|200|SUCCESS: Users deleted|
+|404|FAIL: No users found|

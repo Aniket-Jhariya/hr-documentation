@@ -1,0 +1,14 @@
+### `X/`
+- **View:** X
+- X
+- **Payload**
+    - X
+    ```json 
+   
+    ```
+    **Response**
+    ```json
+    ```
+
+|Response Code|Description|
+|---|---|

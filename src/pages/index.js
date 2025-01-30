@@ -18,9 +18,15 @@ function HomepageHeader() {
         <p className="hero__subtitle">{siteConfig.tagline}</p>
         <div className={styles.buttons}>
           <Link
+            className="button">
+              <a
             className="button button--secondary button--lg"
-            to="/docs/intro">
-            Docusaurus Tutorial - 5min ⏱️
+            href="https://www.candidhr.ai/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            CandidHR.ai Official Website!!
+          </a>
           </Link>
         </div>
       </div>

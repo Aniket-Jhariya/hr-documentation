@@ -4,32 +4,32 @@ import styles from './styles.module.css';
 
 const FeatureList = [
   {
-    title: 'Easy to Use',
-    Svg: require('@site/static/img/undraw_docusaurus_mountain.svg').default,
+    title: 'Smart Hiring, Exceptional Results!',
+    Svg: require('@site/static/img/ai.svg').default,
     description: (
       <>
-        Docusaurus was designed from the ground up to be easily installed and
-        used to get your website up and running quickly.
+        Hiring with our AI powered onboarding platform, featuring automated resume screening, pre-employment
+        tests, and online interviews for faster, smarter and seamless candidate assessment and recruitment.
       </>
     ),
   },
   {
-    title: 'Focus on What Matters',
-    Svg: require('@site/static/img/undraw_docusaurus_tree.svg').default,
+    title: 'Assess Like a Pro, No Guesswork!',
+    Svg: require('@site/static/img/office.svg').default,
     description: (
       <>
-        Docusaurus lets you focus on your docs, and we&apos;ll do the chores. Go
-        ahead and move your docs into the <code>docs</code> directory.
+        Unlock precision with AI powered tools like job assessment tests and aptitude tests for placement. Gain 
+        data driven insights into candidate skills for smarter and faster hiring decisions. 
       </>
     ),
   },
   {
-    title: 'Powered by React',
-    Svg: require('@site/static/img/undraw_docusaurus_react.svg').default,
+    title: 'Smooth Sailing Through Hiring!',
+    Svg: require('@site/static/img/hiring.svg').default,
     description: (
       <>
-        Extend or customize your website layout by reusing React. Docusaurus can
-        be extended while reusing the same header and footer.
+        Streamline recruitment with our AI-powered onboarding platform, featuring automated resume screening and
+        pre-employment tests for smarter, faster, and hassle-free hiring at every step.
       </>
     ),
   },
