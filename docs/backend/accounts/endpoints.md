@@ -309,12 +309,10 @@ sidebar_position: 1
 ## Viewsets
 
 ### `RolesViewSet`
-Handles CRUD operations for the `Roles` model.
+Handles [CRUD](/docs/backend/candidates/endpoints#viewset) operations for the `Roles` model.
 
-**Purpose:**
+#### Purpose:
 - Manages roles within the system.
-
-**Behavior:**
 - Retrieves all roles for `list` and `retrieve` actions.
 - Uses `RolesSerializer` for serialization and deserialization.
 
@@ -323,10 +321,8 @@ Handles CRUD operations for the `Roles` model.
 ### `DemoRequestViewSet`
 Handles CRUD operations for the `DemoRequest` model.
 
-**Purpose:**
+#### Purpose:
 - Manages demo requests submitted by users.
-
-**Behavior:**
 - Restricts access to authenticated super admins.
 - Retrieves all demo requests for `list` and `retrieve` actions.
 - Uses `DemoRequestSerializer` for serialization and deserialization.
@@ -336,10 +332,8 @@ Handles CRUD operations for the `DemoRequest` model.
 ### `OrganizationViewSet`
 Handles CRUD operations for the `Organization` model.
 
-**Purpose:**
+#### Purpose:
 - Manages organizations within the system.
-
-**Behavior:**
 - Restricts access to authenticated users.
 - Filters organizations based on the authenticated user's organization ID.
 - Returns organizations belonging to the user's organization or an empty queryset if the user is not authenticated.
@@ -350,11 +344,9 @@ Handles CRUD operations for the `Organization` model.
 ### `UserViewSet`
 Handles CRUD operations for the `MyUser` model.
 
-**Purpose:**
+#### Purpose:
 - Manages user accounts within the system.
 - Restricts access to admin users.
-
-**Behavior:**
 - Retrieves all users for `list` and `retrieve` actions.
 - Uses `BasicUserDetailSerializer` for serialization and deserialization.
 
@@ -363,10 +355,8 @@ Handles CRUD operations for the `MyUser` model.
 ### `UserDeleteViewSet`
 Handles deletion of multiple `MyUser` objects.
 
-**Purpose:**
+#### Purpose:
 - Manages bulk deletion of user accounts.
-
-**Behavior:**
 - Restricts access to authenticated admin users.
 - Deletes multiple users based on `user_ids` provided in query parameters.
 

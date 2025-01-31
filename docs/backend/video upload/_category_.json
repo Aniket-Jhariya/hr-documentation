@@ -1,6 +1,6 @@
 {
-  "label": "Template",
-  "position": 100,
+  "label": "Video Upload",
+  "position": 19,
   "link": {
     "type": "generated-index",
     "description": "5 minutes to learn the most important Docusaurus concepts."
