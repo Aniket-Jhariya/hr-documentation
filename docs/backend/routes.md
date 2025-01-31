@@ -29,17 +29,17 @@ sidebar_position: 1
 - **Path**: `/admin/`
 - **Purpose**: 
 
-- Provides access to Django's admin interface with a custom admin site [(`\accounts\admin.py#custom_admin_site`)](/docs/backend/accounts/admin.md).
-- Overrides the default admin site with custom branding or functionality.
-- Requires admin privileges for access.
+    - Provides access to Django's admin interface with a custom admin site [(`\accounts\admin.py#custom_admin_site`)](/docs/backend/accounts/admin.md).
+    - Overrides the default admin site with custom branding or functionality.
+    - Requires admin privileges for access.
 
 ---
 
 ### Authentication
 - **Path**: `/accounts/`
 - **Purpose**:
-- Handles user authentication and account management.
-- Delegates routing to [`\accounts\urls.py`](/docs/backend/accounts/endpoints.md) for login, registration, and profile management.
+    - Handles user authentication and account management.
+    - Delegates routing to [`\accounts\urls.py`](/docs/backend/accounts/endpoints.md) for login, registration, and profile management.
 
 ---
 
@@ -47,7 +47,7 @@ sidebar_position: 1
 - **Path**: `/get_count/<str:field>/`
 - **Purpose**: 
 
-- Returns aggregated counts for a specific field (e.g., candidates, jobs).
-- Uses the [`get_count`](/docs/backend/candidates/endpoints#get_count) view from `\candidates\views.py`.
+    - Returns aggregated counts for a specific field (e.g., candidates, jobs).
+    - Uses the [`get_count`](/docs/backend/candidates/endpoints#get_count) view from `\candidates\views.py`.
 
 ---
