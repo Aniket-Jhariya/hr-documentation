@@ -334,3 +334,30 @@ Handles CRUD operations with custom logic for job access validation, dynamic ser
   - Deletes a candidate.
   - Deletes associated resume and files from AWS S3.
   - Calls parent `perform_destroy` to delete the candidate.
+
+### `get_count`
+
+Returns aggregated counts for jobs, applicants, or both, based on the authenticated user's role and permissions.
+
+- **Payload**
+    - GET
+    ```json
+    {
+        "user":{
+            "id":123,
+            "role":"Admin"
+        },
+        "field":"Editor"
+    }
+    ```
+    **Response**
+    ```json
+    {
+        "jobs": 123,
+        "applicants":12
+    }
+    ```
+|Response Code|Description|
+|---|---|
+|200|SUCCESS: Count retrieved|
+|500|FAIL: Server error|
