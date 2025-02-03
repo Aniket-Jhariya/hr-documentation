@@ -188,3 +188,154 @@ sidebar_position: 1
         "candidate": ...candidate object
     }
     ```
+
+### `candidate/<int:candidate_id>/answers/` OR
+### `candidate/<int:candidate_id>/job/<int:job_id>/service/<int:service_id>/answers/`
+- **View:** CandidateAnswersAPIView
+- Filters and retrieves answer sets of personality and resume screening based on candidate id and service id.
+- **Payload**
+    - list
+    ```json
+    {
+        "candidate_id": 123,
+        "job_id": 1234,
+        "service_id": 135
+    }
+    ```
+    **Response**
+    ```json
+    [
+        ...list of answer objects
+    ]
+    ```
+
+### `answers/<int:pk>/audio/`
+- **View:** AudioView
+- Retrieves the audio answer files in the answer set using id.
+- **Payload**
+    - GET
+    **Response**
+    ```http
+    FileResponse: ...audio file as attachment
+    ```
+### `answers/<int:pk>/video/`
+- **View:** VideoView
+- Retrieves the video answer files in the answer set using id.
+- **Payload**
+    - GET
+    **Response**
+    ```http
+    FileResponse: ...audio file as attachment
+    ```
+
+### `answers/<int:pk>/thumbnail/`
+- **View:** ThumbnailView
+- Retrieves the thumbnail file of video answers in the answer set using id.
+- **Payload**
+    - GET
+    **Response**
+    ```http
+    FileResponse: ...audio file as attachment
+    ```
+
+### `get-upload-presigned-url/`
+- **View:** GeneratePresignedURLView
+- Creates connection with S3 client and generates a url for access to video responses. 
+- **Payload**
+    - 
+    ```json
+    {
+        "video_filename":"xyz.mp4",
+        "content_type": "video/*"
+    }
+    ```
+    **Response**
+    ```json
+    {
+        "key": ...video s3 path, 
+        "presigned_upload_url": ...presigned upload url
+
+    }
+    ```
+
+|Response Code|Description|
+|---|---|
+|201|SUCCESS: File path and upload url created|
+|500|FAIL: URL not created|
+
+## ViewSets
+
+### InterviewModuleViewSet
+Handles CRUD operations for the `InterviewModule` model.
+
+#### Purpose:
+- Serializer Selection:
+  - Uses `InterviewModuleViewSerializer` for `list` and `retrieve` actions.
+  - Uses `InterviewModuleSerializer` for other actions.
+- QuerySet Filtering:
+  - Filters modules based on the authenticated user's organization.
+  - Returns an empty queryset for unauthenticated users.
+- Update Operation:
+  - Automatically sets the `updated_at` and `updated_by` fields during updates.
+
+---
+
+### InterviewStepViewSet
+Handles CRUD operations for the `InterviewStep` model.
+
+#### Purpose:
+- Uses `InterviewStepSerializer` for all actions.
+- No custom filtering or logic is applied.
+
+---
+
+### ServiceInterviewStepListView
+Handles retrieval of interview step preferences for a specific service.
+
+#### Purpose:
+- Endpoint: `GET /service-interview-steps/<module_id>/<service_name>/`
+- Parameters:
+  - `module_id`: The ID of the interview module.
+  - `service_name`: The name of the service.
+- Response:
+  - Returns the preferences for the specified service within the module.
+
+---
+
+### QuestionSetViewSet
+Handles CRUD operations for the `QuestionSet` model.
+
+#### Purpose:
+- QuerySet Filtering:
+  - Filters question sets based on the authenticated user's organization.
+- Serializer:
+  - Uses `QuestionSetSerializer` for all actions.
+
+---
+
+### QuestionViewSet
+Handles CRUD operations for the `Question` model.
+
+#### Purpose:
+- QuerySet Filtering:
+  - Filters questions based on `question_set_id` or `question_ids` provided in query parameters.
+  - Excludes deleted questions (`is_deleted=False`).
+- Serializer:
+  - Uses `QuestionSerializer` for all actions.
+
+---
+
+### AnswerViewSet
+Handles CRUD operations for the `Answer` model.
+
+#### Purpose:
+- File Upload:
+  - Supports video file uploads for answers.
+  - Processes video files and uploads them to S3 using a background task.
+- Validation:
+  - Ensures required fields (`screening_id`, `question`) are provided.
+  - Prevents duplicate answers for the same question and screening.
+- Error Handling:
+  - Returns appropriate error responses for validation errors or processing failures.
+- Serializer:
+  - Uses `AnswerSerializer` for all actions.
