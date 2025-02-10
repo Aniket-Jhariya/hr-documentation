@@ -3,13 +3,7 @@ import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, si
 
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
 const firebaseConfig = {
-    apiKey: "AIzaSyDveXc-_yrdimq1WVxBjSGaWTrvmmsp5Hc",
-    authDomain: "hr-documentation-713a0.firebaseapp.com",
-    projectId: "hr-documentation-713a0",
-    storageBucket: "hr-documentation-713a0.firebasestorage.app",
-    messagingSenderId: "177065906370",
-    appId: "1:177065906370:web:cd005001e408abfe336b5b",
-    measurementId: "G-9Y4YY076BF"
+// 
   };
   const app = initializeApp(firebaseConfig);
   const auth = getAuth(app);
