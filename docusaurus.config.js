@@ -70,8 +70,9 @@ const config = {
       },
   ],
     [
-      "docusaurus2-dotenv",
+      "docusaurus-plugin-dotenv",
       {
+        path:"./.env",
         systemvars: true,
       },
     ],
