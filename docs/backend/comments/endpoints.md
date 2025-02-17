@@ -33,6 +33,40 @@ Handles CRUD operations for the `Comment` model.
 - Sets `deleted_by` to the current user if the comment is marked as deleted.
 - Returns a success message on successful deletion or update.
 
+- **Payload**
+    - GET
+    **Response**
+    ```json
+    {
+    "count": 1,
+    "next": null,
+    "previous": null,
+    "results": [
+        {
+            "id": 123,
+            "user": {
+                "id": 123,
+                "name": "John Doe",
+                "email": "johndoe@example.com",
+                "profile_pic": ...link to object in S3 bucket
+            },
+            "candidate": 292,
+            "content_type": "Resume Screening",
+            "object_id": 1394,
+            "text": "Lorem ipsum dolor...",
+            "replies": [
+                "lorem ipsum dolor"
+                ...
+            ],
+            "created_at": "2025-02-17T05:49:40.039652Z",
+            "updated_at": "2025-02-17T05:49:40.039652Z",
+            "job": 7
+        }
+    ]
+    }
+    ```
+
+
 ### `ReplyViewSet`
 Handles CRUD operations for the `Reply` model.
 

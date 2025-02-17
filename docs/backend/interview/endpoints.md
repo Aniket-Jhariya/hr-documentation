@@ -204,9 +204,45 @@ sidebar_position: 1
     ```
     **Response**
     ```json
-    [
-        ...list of answer objects
+    {
+        {
+    "count": 1,
+    "next": null,
+    "previous": null,
+    "results": [
+        {
+            "id": 3636,
+            "question": {
+                "id": 96,
+                "text": "1.\tLorem ipsum dolor..?",
+                "type": "audio",
+                "time_limit": 60,
+                "created_at": "2024-09-16T11:23:04.120923Z",
+                "is_deleted": false,
+                "question_set": 1,
+                "created_by": 2
+            },
+            "video_analysis": null,
+            "audio_analysis": [],
+            "duration": 0,
+            "question_text": null,
+            "type": "audio",
+            "screening_type": "resume-screening",
+            "screening_id": 1394,
+            "text": null,
+            "audio_file": ...link to object in S3 bucket,
+            "video_file": null,
+            "video_thumbnail": null,
+            "started": null,
+            "submitted_at": "2025-01-06T14:39:59.438407Z",
+            "question_set": null,
+            "candidate": 292,
+            "step": null
+        },
+        ...
     ]
+    }
+    }
     ```
 
 ### `answers/<int:pk>/audio/`
@@ -311,6 +347,26 @@ Handles CRUD operations for the `QuestionSet` model.
 - Serializer:
   - Uses `QuestionSetSerializer` for all actions.
 
+- **Payload**
+    - GET
+    **Response**
+    ```json
+    {
+    "count": 16,
+    "next": null,
+    "previous": null,
+    "results": [
+        {
+            "id": 12,
+            "name": "Tester Questions",
+            "created_at": "2024-07-01T07:19:59.554842Z",
+            "created_by": 123
+        },
+        ...
+    ]
+    }
+    ```
+
 ---
 
 ### QuestionViewSet
@@ -323,6 +379,21 @@ Handles CRUD operations for the `Question` model.
 - Serializer:
   - Uses `QuestionSerializer` for all actions.
 
+- **Payload**
+    - GET
+    **Response**
+    ```json
+    {
+    "id": 123,
+    "text": "lorem ipsum dolor...?",
+    "type": "audio",
+    "time_limit": 30,
+    "created_at": "2024-07-01T07:23:22.382375Z",
+    "is_deleted": true,
+    "question_set": 1,
+    "created_by": 2
+    }
+    ```
 ---
 
 ### AnswerViewSet

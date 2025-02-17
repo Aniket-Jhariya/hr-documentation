@@ -118,14 +118,83 @@ sidebar_position: 1
     ```
     **Response**
     ```json
-    [
-        ...list of candidates
+    {
+    "count": 12,
+    "next": null,
+    "previous": null,
+    "results": [
         {
-            "job_id":1234,
-            "name":"John Doe",
-            ...candidate details
-        }
+            "id": 123,
+            "name": "John Doe",
+            "email": "johndoe@example.com",
+            "location": {
+                "city": "Pune",
+                "state": "Maharashtra "
+            },
+            "skills": [
+                {
+                    "name": "Testing",
+                    "relevance": "medium",
+                    "relevance_score": 5
+                },
+                ...
+            ],
+            "created_at": "2024-11-10T09:50:55.373048Z",
+            "updated_at": "2024-11-10T09:51:14.310936Z",
+            "current_stage": "",
+            "stages": {
+                "resume": {
+                    "exists": true,
+                    "key": "resume-screening",
+                    "stage_name": "Resume Screening",
+                    "service_id": 1,
+                    "details": {
+                        "id": 123,
+                        "name": "John Doe",
+                        "job": 50,
+                        "status_text": "Not Shortlisted",
+                        "relevant_experience_in_months": 12,
+                        "overall_score": "1.200",
+                        "resume_score": {
+                            "id": 1137,
+                            "ai_score": true,
+                            "skills_score": "0.00",
+                            "work_exp_score": "0.60",
+                            "projects_score": "0.40",
+                            "education_score": "0.00",
+                            "certifications_score": "0.20",
+                            "overall_score": "1.20",
+                            "feedback": null,
+                            "job": 50,
+                            "user": 2,
+                            "score_weight": 1
+                        },
+                        "completed": true,
+                        "updated_at": "2024-11-11T12:39:55.822448Z",
+                        "updated_by": null,
+                        "is_approved": false,
+                        "approved_by": null,
+                        "created_at": "2024-11-10T09:50:55.377856Z"
+                    }
+                },
+                "assessment": {
+                    "exists": false,
+                    "key": "assessment",
+                    "stage_name": "Assessments",
+                    "service_id": 3,
+                    "details": null
+                },
+                "video": {
+                    "exists": false,
+                    "key": "automated-video-interview",
+                    "stage_name": "Automated Video Interview",
+                    "service_id": 2,
+                    "details": null
+                }
+            }
+        },
     ]
+    }
     ```
     :::note
     Responds with an empty list if no matching candidate found.
@@ -334,6 +403,285 @@ Handles CRUD operations with custom logic for job access validation, dynamic ser
   - Deletes a candidate.
   - Deletes associated resume and files from AWS S3.
   - Calls parent `perform_destroy` to delete the candidate.
+
+#### Payload
+-GET 
+**Response**
+```json
+{
+    "id": 292,
+    "applied_jobs": [
+        {
+            "id": 7,
+            "score_weight": {
+                "id": 2,
+                "skills": "0.40",
+                "work_experience": "0.10",
+                "projects": "0.30",
+                "education": "0.10",
+                "certifications": "0.10",
+                "user": null
+            },
+            "owner": {
+                "id": 2,
+                "name": "John Doe",
+                "org": 1,
+                "username": null,
+                "email": "johndoe@example.com",
+                "role": {
+                    "id": 1,
+                    "name": "Admin"
+                },
+                "profile_pic": ...link to object in S3 bucket,
+                "is_active": true,
+                "is_staff": true,
+                "is_superuser": true,
+                "last_login": "2025-02-17T05:23:08.498133Z",
+                "last_seen": "5 minutes ago",
+                "contact": 1234567890,
+                "country": null,
+                "invited_by": null,
+                "created_at": "2024-12-02T12:33:13.659653Z"
+            },
+            "applicants_count": 160,
+            "applicants_today_count": 0,
+            "title": "Software tester",
+            "description": "lorem ipsum dolor...",
+            "jd_html": "lorem ipsum dolor...",
+            "jd_json": {
+                "Skills": [
+                    "Software testing proficiency",
+                    ...
+                ],
+                "Projects": [
+                    "Example project",
+                    ...
+                ],
+                "Education": [
+                    "Software Engineering",
+                    ...
+                ],
+                "Certifications": [
+                    "Example certification",
+                    ...
+                ],
+                "Work Experience": [
+                    "Software Developer",
+                    ...
+                ]
+            },
+            "experience": 1,
+            "min_experience": 0,
+            "max_experience": 1,
+            "employment_type": "Full Time",
+            "location": "Pune / Remote",
+            "must_have_skills": [
+                {
+                    "label": "Testing",
+                    "value": "Software Testing"
+                },
+                ...
+            ],
+            "encrypted": "qwertyuiopasdfghjkl",
+            "published": true,
+            "close_date": "2025-01-17T00:00:00Z",
+            "new_applicant_notify": false,
+            "created_at": "2024-03-01T11:07:30.677457Z",
+            "updated_at": "2025-01-04T07:43:37.698840Z",
+            "is_deleted": false,
+            "interview_module": 2,
+            "workflow": null,
+            "deleted_by": null,
+            "users_shared_with": [
+                4
+            ]
+        },
+    ],
+    "resumes": {
+        "id": 1394,
+        "resume_score": {
+            "id": 1251,
+            "ai_score": true,
+            "skills_score": "3.90",
+            "work_exp_score": "1.00",
+            "projects_score": "3.00",
+            "education_score": "1.00",
+            "certifications_score": "0.00",
+            "overall_score": "8.90",
+            "feedback": null,
+            "job": 7,
+            "user": 2,
+            "score_weight": 2
+        },
+        "score_weight": {
+            "id": 2,
+            "skills": "0.40",
+            "work_experience": "0.10",
+            "projects": "0.30",
+            "education": "0.10",
+            "certifications": "0.10",
+            "user": null
+        },
+        "name": "Resume 1",
+        "resume_json": {
+            "name": "Jane Doe",
+            "emails": [],
+            "skills": [
+                {
+                    "name": "Tester",
+                    "relevance": "medium",
+                    "relevance_score": 5
+                },
+                ...
+            ],
+            "summary": "lorem ipsum dolor...",
+            "projects": [
+                {
+                    "name": "Example project",
+                    "relevance": "high",
+                    "description": "lorem ipsum dolor",
+                    "relevance_score": 8
+                },
+                ...
+            ],
+            "websites": [],
+            "addresses": {
+                "city": "Pune",
+                "state": "Maharashtra"
+            },
+            "education": [
+                {
+                    "cgpa": 6,
+                    "degree": "Software engineering",
+                    "school": "Example University",
+                    "endDate": "2021-06-30",
+                    "percent": null,
+                    "relevance": "high",
+                    "startDate": "2017-07-01",
+                    "relevance_score": 9
+                }
+            ],
+            "dateOfBirth": "",
+            "phoneNumbers": "",
+            "certifications": [],
+            "workExperience": [
+                {
+                    "company": "ABC example pvt ltd",
+                    "endDate": "2023-11-30",
+                    "position": "Software tester",
+                    "relevance": "medium",
+                    "startDate": "2022-12-01",
+                    "description": "lorem ipsum dolor...",
+                    "relevance_score": 6
+                },
+                ...
+            ]
+        },
+        "input_tokens": 3878,
+        "output_tokens": 1577,
+        "total_tokens": 5455,
+        "cost": "0.0030",
+        "phone_numbers": "9876543210",
+        "personal_website": ...link to personal websit,
+        "websites": [],
+        "emails": "janedoe@example.com",
+        "date_of_birth": "01.01.2000",
+        "addresses": {
+            "city": "Chennai",
+            "state": "Tamil Nadu"
+        },
+        "summary": "lorem ipsum...",
+        "ai_summary": "lorem ipsum dolor...",
+        "education": [
+            {
+                "cgpa": 6,
+                "degree": "Software Engineering",
+                "school": "Example university",
+                "endDate": "2021-06-30",
+                "percent": null,
+                "relevance": "high",
+                "startDate": "2017-07-01",
+                "relevance_score": 9
+            }
+        ],
+        "work_experience": [
+            {
+                "company": "ABC example pvt ltd",
+                "endDate": "2023-11-30",
+                "position": "Software tester",
+                "relevance": "medium",
+                "startDate": "2022-12-01",
+                "description": "lorem ipsum dolor...",
+                "relevance_score": 6
+            },
+            ...
+        ],
+        "duration_per_work": [
+            {
+                "company": "ABC example pvt ltd",
+                "relevance_score": 6,
+                "experience_in_months": 12
+            },
+            ...
+        ],
+        "total_duration": 26,
+        "skills": [
+            {
+                "name": "Testing",
+                "relevance": "high",
+                "relevance_score": 9
+            },
+            ...
+        ],
+        "skills_matched": [
+            {
+                "name": "Testing",
+                "relevance": "high",
+                "relevance_score": 9
+            },
+            ...
+        ],
+        "skill_match_count": 0,
+        "certifications": [],
+        "projects": [
+            {
+                "name": "Example project",
+                "relevance": "high",
+                "description": "lorem ispum dolor...",
+                "relevance_score": 8
+            },
+            ...
+        ],
+        "overall_score": "8.900",
+        "resume_file":...link to object in S3 bucket,
+        "introduction_video": null,
+        "upload_count": 1,
+        "task_duration_seconds": 30,
+        "completed": true,
+        "task_message": "Resume Parsed Successfully",
+        "retries": 1,
+        "created_at": "2025-01-06T14:39:19.599535Z",
+        "updated_at": "2025-01-06T14:40:03.684118Z",
+        "relevant_experience_in_months": 2,
+        "expected_ctc": 2,
+        "status_text": "Under Review",
+        "approved_at": null,
+        "is_approved": false,
+        "job": 7,
+        "preference": 17,
+        "approved_by": null,
+        "updated_by": null,
+        "users_shared_with": []
+    },
+    "created_at": "2024-07-02T12:38:00.405406Z",
+    "updated_at": "2025-01-06T14:39:59.433143Z",
+    "notice_period_in_months": 2,
+    "current_ctc": 2,
+    "last_increment": null,
+    "hired": false
+}
+
+```
 
 ### `get_count`
 

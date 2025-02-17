@@ -46,8 +46,14 @@ sidebar_position: 1
 ### Utility Endpoints
 - **Path**: `/get_count/<str:field>/`
 - **Purpose**: 
-
     - Returns aggregated counts for a specific field (e.g., candidates, jobs).
     - Uses the [`get_count`](/docs/backend/candidates/endpoints#get_count) view from `\candidates\views.py`.
-
----
+- **Payload**
+    -GET
+    **RESPONSE**
+    ```json
+    {
+        "jobs":37,
+        "applicants":870
+    }
+    ```

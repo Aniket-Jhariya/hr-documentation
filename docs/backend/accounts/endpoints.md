@@ -80,23 +80,33 @@ sidebar_position: 1
     - Query list
     ```json
     {
-        "id":1234, 
-        "name":"John Doe", 
-        "org":"1234xyz", 
-        "username":"JohnD123", 
-        "email":"johndoe@example.com", 
-        "role":"admin", 
-        "profile_pic":"pfp_id", 
-        "password":"johndoe@123", 
-        "is_active":true,
-        "is_staff":true, 
-        "is_superuser":false, 
-        "last_login":"2024-11-25T14:30:00Z", 
-        "last_seen":"2024-12-25T14:30:00Z", 
-        "contact":"+123456789", 
-        "country":"India", 
-        "invited_by":"user_id", 
-        "created_at":"2024-10-25T14:30:00Z"
+    "count": 30,
+    "next": null,
+    "previous": null,
+    "results": [
+        {
+            "id": 2,
+            "name": "John Doe",
+            "org": 1,
+            "username": null,
+            "email": "johndoe@example.com",
+            "role": {
+                "id": 1,
+                "name": "Admin"
+            },
+            "profile_pic": ...link to object in S3 bucket,
+            "is_active": true,
+            "is_staff": true,
+            "is_superuser": true,
+            "last_login": "2025-02-17T06:32:33.883834Z",
+            "last_seen": "4 minutes ago",
+            "contact": 9167909413,
+            "country": null,
+            "invited_by": null,
+            "created_at": "2024-12-02T12:33:13.659653Z"
+        },
+        ...
+    ]
     }
     ```
 ### `profile-pic/`
@@ -195,6 +205,20 @@ sidebar_position: 1
 ### `token/`
 - **View:** MyTokenObtainPairView
 - Generates and retrieves json web token for `authentication`.
+- **Payload**
+    - POST
+    ```json
+    {
+    "email": "johndoe@example.com",
+    "password": "example@password"
+    }
+    ```
+    **Response**
+    ```json
+    {
+        "refresh":...refresh json web token ,
+        "access":...access json web token
+    }
     |Response Code|Description|
     |---|---|
     |200|SUCCESS: Token generated|
@@ -327,6 +351,34 @@ Handles CRUD operations for the `DemoRequest` model.
 - Retrieves all demo requests for `list` and `retrieve` actions.
 - Uses `DemoRequestSerializer` for serialization and deserialization.
 
+- **Payload**
+    -GET
+    **Response**
+    ```json
+    {
+    "count": 8,
+    "next": null,
+    "previous": null,
+    "results": [
+        {
+            "id": 1,
+            "first_name": "John",
+            "last_name": "Doe",
+            "email": "johndoe@example.com",
+            "phone": "+1234567890",
+            "job_title": "Software Engineer",
+            "company": "XYZ example pvt ltd",
+            "consent": true,
+            "status": "pending",
+            "demo_date": null,
+            "feedback": "lorem ipsum dolor...",
+            "created_at": "2024-11-22T06:24:19.097739Z"
+        },
+        ...
+    ]
+    }
+    ```
+
 
 
 ### `OrganizationViewSet`
@@ -349,6 +401,69 @@ Handles CRUD operations for the `MyUser` model.
 - Restricts access to admin users.
 - Retrieves all users for `list` and `retrieve` actions.
 - Uses `BasicUserDetailSerializer` for serialization and deserialization.
+
+- **Payload**
+    - GET
+    **Response**
+    ```json
+    {
+    "id": 2,
+    "org": {
+        "org_id": 1,
+        "services": [
+            {
+                "id": 1,
+                "name": "Resume Screening",
+                "description": null,
+                "key": "resume-screening",
+                "credits": 10,
+                "service_type": "pay_as_you_go"
+            },
+            ...
+        ],
+        "logo": ...link to object in S3 bucket,
+        "secondary_logo": null,
+        "org_domain": "xyz-example.com",
+        "org_name": "XYZ example pvt ltd",
+        "org_tier": "premium",
+        "org_location": "Pune",
+        "credits": 1234,
+        "support_email": null,
+        "created_at": "2024-12-02T12:33:14.458911Z",
+        "is_verified": false,
+        "is_active": false,
+        "is_email_sent": false,
+        "updated_at": "2025-02-03T06:10:57.579238Z",
+        "business_model": 1,
+        "updated_by": null,
+        "created_by": null
+    },
+    "role": {
+        "id": 1,
+        "name": "Admin"
+    },
+    "last_login": "2025-02-17T04:52:49.230031Z",
+    "name": "John Doe",
+    "username": null,
+    "position": null,
+    "profile_pic": ...link to object in S3 bucket,
+    "email": "johndoe@example.com",
+    "contact": 1234567890,
+    "state": null,
+    "country": null,
+    "is_active": true,
+    "is_staff": true,
+    "is_superuser": true,
+    "is_superadmin": true,
+    "is_admin": true,
+    "created_at": "2024-12-02T12:33:13.659653Z",
+    "updated_at": "2024-12-02T12:33:14.208468Z",
+    "agree_to_terms_and_conditions": false,
+    "invited_by": null,
+    "groups": [...],
+    "user_permissions": [...]
+}
+    ```
 
 
 

@@ -5,7 +5,6 @@ import Layout from '@theme/Layout';
 import HomepageFeatures from '@site/src/components/HomepageFeatures';
 import Heading from '@theme/Heading';
 import styles from './index.module.css';
-import PrivateRoute from "@site/src/components/PrivateRoute";
 
 function HomepageHeader() {
   const {siteConfig} = useDocusaurusContext();
@@ -37,7 +36,6 @@ function HomepageHeader() {
 export default function Home() {
   const {siteConfig} = useDocusaurusContext();
   return (
-    <PrivateRoute>
     <Layout
       title={``}
       description="Description will go into a meta tag in <head />">
@@ -46,6 +44,5 @@ export default function Home() {
         <HomepageFeatures />
       </main>
     </Layout>
-    </PrivateRoute>
   );
 }

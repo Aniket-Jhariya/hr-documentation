@@ -93,6 +93,98 @@ Handles CRUD operations for the `Job` model.
 - Uses `JobDataFilter` to filter jobs based on query parameters.
 - Applies `PageNumberPagination` for paginated responses.
 
+- **Response**
+```json
+{
+    "count": 123,
+    "next": ...follow link to next page,
+    "previous": null,
+    "results": [
+        {
+            "id": 12,
+            "title": "Software Tester",
+            "jd_html": "...lorem ipsum dolor",
+            "description": "...lorm ipsum dolor",
+            "applicants_count": 12,
+            "applicants_today_count": 0,
+            "experience": 5,
+            "min_experience": 5,
+            "encrypted": "...qwertyuiopasdfghjkl",
+            "owner": {
+                "id": 123,
+                "name": "John doe",
+                "org": 1,
+                "username": null,
+                "email": "johndoe@example.com",
+                "role": {
+                    "id": 1,
+                    "name": "Admin"
+                },
+                "profile_pic": ...link to object in s3 bucket,
+                "is_active": true,
+                "is_staff": true,
+                "is_superuser": true,
+                "last_login": "2025-02-17T04:52:49.230031Z",
+                "last_seen": "0 minutes ago",
+                "contact": 1234567890,
+                "country": "India",
+                "invited_by": null,
+                "created_at": "2024-12-02T12:33:13.659653Z"
+            },
+            "max_experience": 10,
+            "employment_type": "Full Time",
+            "location": "Pune / Remote",
+            "published": true,
+            "closing_in": 0,
+            "close_date": "2025-01-31T00:00:00Z",
+            "created_at": "2024-09-27T06:11:18.952174Z",
+            "users_shared_with": [
+                {
+                    "id": 4,
+                    "name": "Jane Doe",
+                    "org": 1,
+                    "username": null,
+                    "email": "janedoe@example.com",
+                    "role": {
+                        "id": 1,
+                        "name": "Admin"
+                    },
+                    "profile_pic": ...link to object in s3 bucket,
+                    "is_active": true,
+                    "is_staff": true,
+                    "is_superuser": false,
+                    "last_login": "2024-11-28T09:36:37.256921Z",
+                    "last_seen": "80 days ago",
+                    "contact": 9876543210,
+                    "country": null,
+                    "invited_by": null,
+                    "created_at": "2024-12-02T12:33:13.659653Z"
+                },
+                ...
+            ],
+            "must_have_skills": [
+                {
+                    "label": "Communication",
+                    "value": "Communication",
+                    "__isNew__": true
+                }
+                ...
+            ],
+            "score_weight": {
+                "id": 1,
+                "skills": "0.30",
+                "work_experience": "0.30",
+                "projects": "0.20",
+                "education": "0.10",
+                "certifications": "0.10",
+                "user": null
+            }
+        },
+        ...
+    ]
+}
+```
+
 ---
 
 ### ResumeViewSet
@@ -127,6 +219,65 @@ Handles CRUD operations for the `Candidate` model.
 - Uses `CandidateDataFilter` to filter candidates based on query parameters.
 - Filters candidates by stage (e.g., "Applied", "Resume Screening", "On Hold").
 - Applies `PageNumberPagination` for paginated responses.
+
+- **Payload**
+    - GET
+    **Response**
+    ```json
+    {
+    "count": 123,
+    "next": ...link to next page ,
+    "previous": ...link to previous page,
+    "results": [
+        {
+            "id": 123,
+            "name": "John Doe",
+            "email": "johndoe@example.com",
+            "profile_pic": ...link to object in S3 bucket,
+            "contact": "1234567890",
+            "location": "{\"city\":\"Pune\",\"state\":\"Maharashtra\"}",
+            "resumes": {
+                "id": 1234,
+                "name": "Example 1",
+                "job": 7,
+                "status_text": "Under Review",
+                "relevant_experience_in_months": 2,
+                "overall_score": "8.900",
+                "resume_score": {
+                    "id": 1251,
+                    "ai_score": true,
+                    "skills_score": "3.90",
+                    "work_exp_score": "1.00",
+                    "projects_score": "3.00",
+                    "education_score": "1.00",
+                    "certifications_score": "0.00",
+                    "overall_score": "8.90",
+                    "feedback": null,
+                    "job": 7,
+                    "user": 2,
+                    "score_weight": 2
+                },
+                "completed": true,
+                "updated_at": "2025-01-06T14:40:03.684118Z",
+                "updated_by": null,
+                "is_approved": false,
+                "approved_by": null,
+                "created_at": "2025-01-06T14:39:19.599535Z"
+            },
+            "applied_jobs": [
+                {
+                    "id": 7,
+                    "title": "Trainee - Associate Software Developer"
+                },
+                ...
+            ],
+            "created_at": "2024-07-02T12:38:00.405406Z",
+            "updated_at": "2025-01-06T14:39:59.433143Z"
+        },
+        ...
+    ]
+    }
+    ```
 
 ---
 

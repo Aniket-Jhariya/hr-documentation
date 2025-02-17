@@ -52,20 +52,37 @@ sidebar_position: 1
 - Get the job instance by ID or encrypted key
 - **Payload**
     - GET
-    ```json
-    {
-        "user": ...user object,
-        "id": 1234,
-        "encrypted": ...encrypted job key
-    }
-    ```
     **Response**
     ```json
-    {
-        "job":{
-            "id":1234,
-            ...job details
-        }
+   {
+    "id": 123,
+    "title": "Software tester",
+    "description": "lorem ipsum dolor...",
+    "jd_html": "</p>lorem ipsum dolor</p>",
+    "experience": 5,
+    "min_experience": 5,
+    "must_have_skills": [
+        {
+            "label": "Testing",
+            "value": "Software Testing",
+            "__isNew__": true
+        },
+    ],
+    "encrypted": "qwertyuiopasdfghjkl...",
+    "owner": 2,
+    "organization": {
+        "id": 1,
+        "name": "XYZ example pvt ltd",
+        "description": "xyz-example.com",
+        "location": "Pune"
+    },
+    "max_experience": 10,
+    "interview_module": null,
+    "employment_type": "Full Time",
+    "location": "Pune / Remote",
+    "published": false,
+    "close_date": "2025-01-31T00:00:00Z",
+    "created_at": "2024-09-27T06:11:18.952174Z"
     }
     ```
 
@@ -130,7 +147,7 @@ sidebar_position: 1
         {"label": "Applied", "count": 123, "backgroundColor": "bg-blue-50", "color": "text-blue-500"},
         {"label": "Resume Screening", "count": 12, "backgroundColor": "bg-blue-50", "color": "text-blue-500"},
         {"label": "Assessments", "count": 2, "backgroundColor": "bg-blue-50", "color": "text-blue-500"},
-        ...list of stages and details
+        ...
     ]
     ```
 |Response Code|Description|
@@ -161,6 +178,82 @@ Handles CRUD operations for the `Job` model.
 - Delete Operation:
   - Deletes the job and clears the cache for the user.
 
+- **Payload**
+  - GET
+  ```json
+  {
+  "users_shared_with": [
+        55
+    ]
+    }
+  ```
+  **Response**
+  ```json
+  {
+    "id": 50,
+    "score_weight": {
+        "id": 1,
+        "skills": "0.30",
+        "work_experience": "0.30",
+        "projects": "0.20",
+        "education": "0.10",
+        "certifications": "0.10",
+        "user": null
+    },
+    "owner": {
+        "id": 2,
+        "name": "John Doe",
+        "org": 1,
+        "username": null,
+        "email": "johndoe@example.com",
+        "role": {
+            "id": 1,
+            "name": "Admin"
+        },
+        "profile_pic": ...link to S3 bucket,
+        "is_active": true,
+        "is_staff": true,
+        "is_superuser": true,
+        "last_login": "2025-02-17T06:32:33.883834Z",
+        "last_seen": "7 minutes ago",
+        "contact": 1234567890,
+        "country": null,
+        "invited_by": null,
+        "created_at": "2024-12-02T12:33:13.659653Z"
+    },
+    "applicants_count": 15,
+    "applicants_today_count": 0,
+    "title": "Software tester",
+    "description": "lorem ipsum dolor...",
+    "jd_html": "<p>lorem ipsum dolor...</p>",
+    "jd_json": null,
+    "experience": 5,
+    "min_experience": 5,
+    "max_experience": 10,
+    "employment_type": "Full Time",
+    "location": "Pune / Remote",
+    "must_have_skills": [
+        {
+            "label": "Testing",
+            "value": "Software testing",
+            "__isNew__": true
+        },
+    ],
+    "encrypted": "gAAAAABm9kyGNR9Sw6iN50AF_afKXsVMKGUPMjDyCv2auOBmPmSR0Ot55yInwOa2eBb6RQiNqkTGUhAPLlCGolrq-LlMYVzX7w==",
+    "published": false,
+    "close_date": "2025-01-31T00:00:00Z",
+    "new_applicant_notify": false,
+    "created_at": "2024-09-27T06:11:18.952174Z",
+    "updated_at": "2025-02-17T06:39:56.328584Z",
+    "is_deleted": false,
+    "interview_module": null,
+    "workflow": null,
+    "deleted_by": null,
+    "users_shared_with": [
+        55
+    ]
+    }
+    ```
 ---
 
 ### FilterGroupViewSet
@@ -183,6 +276,27 @@ Handles CRUD operations for the `Criteria` model.
   - `bulk_create_or_update`: Creates or updates multiple criteria in bulk.
 - QuerySet Filtering:
   - Excludes deleted criteria (`is_deleted=False`).
+
+- **Payload**
+  - GET
+  **Response**
+  ```json
+  [
+    {
+        "id": 123,
+        "job_id": 50,
+        "question": "lorem ipsum dolor...",
+        "response_type": "radio",
+        "options": [
+            "1",
+            "2",
+            "3"
+        ],
+        "expected_response": "1",
+        "is_deleted": false
+    }
+    ]
+  ```
 
 ---
 
@@ -208,3 +322,5 @@ Handles CRUD operations for the `CandidateResponse` model.
   - Returns a status message indicating success or failure.
   - Handles cases where the candidate, job, or criteria do not exist.
   - Uses a transaction to ensure atomicity.
+
+  
