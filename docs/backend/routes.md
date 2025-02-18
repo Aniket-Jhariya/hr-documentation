@@ -49,8 +49,9 @@ sidebar_position: 1
     - Returns aggregated counts for a specific field (e.g., candidates, jobs).
     - Uses the [`get_count`](/docs/backend/candidates/endpoints#get_count) view from `/candidates`.
 - **Payload**
-    -GET
-    **RESPONSE**
+    - GET
+    
+    **Response**
     ```json
     {
         "jobs":37,
