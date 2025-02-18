@@ -9,7 +9,13 @@ const EmailLoginForm = () => {
     const [isSignUp, setIsSignUp] = useState(false);
     const [error, setError] = useState("");
     const [loading, setLoading] = useState(false); // Loading state
+    const [notification, setNotification] = useState(null); // Notification state
     const history = useHistory(); // For navigation
+
+    const showNotification = (message, type = "info") => {
+        setNotification({ message, type });
+        setTimeout(() => setNotification(null), 3000); // Hide notification after 3 seconds
+    };
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -20,24 +26,25 @@ const EmailLoginForm = () => {
             if (isSignUp) {
                 // Sign up logic
                 await signUp(email, password);
-                alert("Signup successful! Please check your email to verify your account.");
+                showNotification("Signup successful! Please check your email to verify your account.", "success");
                 history.push("/login"); // Redirect to login page after signup
             } else {
                 // Login logic
                 const user = await signIn(email, password);
 
                 // Check if email is verified
-                if (!user.emailVerified) {
+                if (user && !user.emailVerified) {
                     setError("Please verify your email before logging in.");
                     await logout(); // Log out the user if email is not verified
                 } else {
-                    alert("Logged in successfully!");
+                    showNotification("Logged in successfully!", "success");
                     // Redirect to a protected page or home page
                     history.push("/");
                 }
             }
         } catch (err) {
             setError(err.message || "Authentication failed");
+            showNotification(err.message || "Authentication failed", "error");
         } finally {
             setLoading(false); // Reset loading state
         }
@@ -45,12 +52,20 @@ const EmailLoginForm = () => {
 
     return (
         <div className="login-container">
+            {/* Notification Overlay */}
+            {notification && (
+                <div className={`notification ${notification.type}`}>
+                    {notification.message}
+                </div>
+            )}
+
             <div className="login-card">
-                <h2>{isSignUp ? "Create Account" : "Welcome Back"}</h2>
+                <h2>{isSignUp ? "Create Account" : "Welcome"}</h2>
                 {error && <div className="error-message">{error}</div>}
                 <form onSubmit={handleSubmit}>
                     <div className="form-group">
                         <input
+                            className="form-input"
                             type="email"
                             placeholder="Email"
                             value={email}
@@ -60,6 +75,7 @@ const EmailLoginForm = () => {
                     </div>
                     <div className="form-group">
                         <input
+                            className="form-input"
                             type="password"
                             placeholder="Password"
                             value={password}
