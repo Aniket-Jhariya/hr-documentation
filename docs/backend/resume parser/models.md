@@ -5,121 +5,121 @@ sidebar_position: 2
 
 # Models
 
-## **ResumeScreeningPreference**
+## ResumeScreeningPreference
 Stores preferences for resume screening and application forms.
 
 ### Fields:
-- **`job`** (ForeignKey): The job associated with the preferences.
-- **`currency`** (CharField): Currency for salary fields (optional).
-- **`max_retries`** (PositiveIntegerField): Maximum number of retries allowed (default: 1).
-- **`max_applicants`** (PositiveIntegerField): Maximum number of applicants allowed (default: 100).
-- **`max_resume_size`** (PositiveIntegerField): Maximum allowed resume size in MB (default: 10).
-- **`currency`** (JSONField): Currency details (optional).
-- **`location_to_exclude`** (JSONField): Locations to exclude from screening (optional).
-- **`include_github`** (CharField): Preference for including GitHub link (choices: mandatory, optional, off; default: off).
-- **`include_linkedin`** (CharField): Preference for including LinkedIn link (choices: mandatory, optional, off; default: off).
-- **`include_personal_website`** (CharField): Preference for including personal website (choices: mandatory, optional, off; default: off).
-- **`include_profile_pic`** (CharField): Preference for including profile picture (choices: mandatory, optional, off; default: off).
-- **`include_intro_video`** (CharField): Preference for including introduction video (choices: mandatory, optional, off; default: off).
-- **`include_notice_period`** (CharField): Preference for including notice period (choices: mandatory, optional, off; default: off).
-- **`include_current_ctc`** (CharField): Preference for including current CTC (choices: mandatory, optional, off; default: off).
-- **`include_expected_ctc`** (CharField): Preference for including expected CTC (choices: mandatory, optional, off; default: off).
-- **`include_relevant_experience`** (CharField): Preference for including relevant experience (choices: mandatory, optional, off; default: off).
-- **`last_increment`** (CharField): Preference for including last increment details (choices: mandatory, optional, off; default: off).
-- **`include_questions`** (BooleanField): Include custom questions in the application form (default: False).
-- **`service`** (ForeignKey): Associated service (optional).
-- **`question_set`** (ForeignKey): Associated question set (optional).
-- **`questions`** (ManyToManyField): Custom questions for the application form (optional).
-- **`random_questions`** (BooleanField): Enable random questions (default: False).
-- **`random_questions_count`** (PositiveIntegerField): Number of random questions to include (default: 0).
+- `job` (ForeignKey): The job associated with the preferences.
+- `currency` (CharField): Currency for salary fields (optional).
+- `max_retries` (PositiveIntegerField): Maximum number of retries allowed (default: 1).
+- `max_applicants` (PositiveIntegerField): Maximum number of applicants allowed (default: 100).
+- `max_resume_size` (PositiveIntegerField): Maximum allowed resume size in MB (default: 10).
+- `currency` (JSONField): Currency details (optional).
+- `location_to_exclude` (JSONField): Locations to exclude from screening (optional).
+- `include_github` (CharField): Preference for including GitHub link (choices: mandatory, optional, off; default: off).
+- `include_linkedin` (CharField): Preference for including LinkedIn link (choices: mandatory, optional, off; default: off).
+- `include_personal_website` (CharField): Preference for including personal website (choices: mandatory, optional, off; default: off).
+- `include_profile_pic` (CharField): Preference for including profile picture (choices: mandatory, optional, off; default: off).
+- `include_intro_video` (CharField): Preference for including introduction video (choices: mandatory, optional, off; default: off).
+- `include_notice_period` (CharField): Preference for including notice period (choices: mandatory, optional, off; default: off).
+- `include_current_ctc` (CharField): Preference for including current CTC (choices: mandatory, optional, off; default: off).
+- `include_expected_ctc` (CharField): Preference for including expected CTC (choices: mandatory, optional, off; default: off).
+- `include_relevant_experience` (CharField): Preference for including relevant experience (choices: mandatory, optional, off; default: off).
+- `last_increment` (CharField): Preference for including last increment details (choices: mandatory, optional, off; default: off).
+- `include_questions` (BooleanField): Include custom questions in the application form (default: False).
+- `service` (ForeignKey): Associated service (optional).
+- `question_set` (ForeignKey): Associated question set (optional).
+- `questions` (ManyToManyField): Custom questions for the application form (optional).
+- `random_questions` (BooleanField): Enable random questions (default: False).
+- `random_questions_count` (PositiveIntegerField): Number of random questions to include (default: 0).
 
 ---
 
-## **ResumeScore**
+## ResumeScore
 Stores scores for resume evaluation.
 
 ### Fields:
-- **`job`** (ForeignKey): The job associated with the resume score (optional).
-- **`user`** (ForeignKey): The user who evaluated the resume (optional).
-- **`score_weight`** (ForeignKey): Weightage used for scoring (optional).
-- **`ai_score`** (BooleanField): Indicates if the score is generated by AI (default: False).
-- **`skills_score`** (DecimalField): Score for skills section (optional).
-- **`work_exp_score`** (DecimalField): Score for work experience section (optional).
-- **`projects_score`** (DecimalField): Score for projects section (optional).
-- **`education_score`** (DecimalField): Score for education section (optional).
-- **`certifications_score`** (DecimalField): Score for certifications section (optional).
-- **`overall_score`** (DecimalField): Overall resume score (optional).
-- **`feedback`** (CharField): Feedback on the resume (optional).
+- `job` (ForeignKey): The job associated with the resume score (optional).
+- `user` (ForeignKey): The user who evaluated the resume (optional).
+- `score_weight` (ForeignKey): Weightage used for scoring (optional).
+- `ai_score` (BooleanField): Indicates if the score is generated by AI (default: False).
+- `skills_score` (DecimalField): Score for skills section (optional).
+- `work_exp_score` (DecimalField): Score for work experience section (optional).
+- `projects_score` (DecimalField): Score for projects section (optional).
+- `education_score` (DecimalField): Score for education section (optional).
+- `certifications_score` (DecimalField): Score for certifications section (optional).
+- `overall_score` (DecimalField): Overall resume score (optional).
+- `feedback` (CharField): Feedback on the resume (optional).
 
 ---
 
-## **Resume**
+## Resume
 Stores resume details and associated metadata.
 
 ### Fields:
-- **`job`** (ForeignKey): The job associated with the resume (optional).
-- **`resume_score`** (ForeignKey): The resume score (optional).
-- **`score_weight`** (ForeignKey): Weightage used for scoring (optional).
-- **`preference`** (ForeignKey): Resume screening preferences (optional).
-- **`name`** (CharField): Name of the resume (optional).
-- **`resume_json`** (JSONField): Resume data in JSON format (optional).
-- **`input_tokens`** (IntegerField): Number of input tokens used for processing (optional).
-- **`output_tokens`** (IntegerField): Number of output tokens generated (optional).
-- **`total_tokens`** (IntegerField): Total tokens used (optional).
-- **`cost`** (DecimalField): Cost of processing the resume (optional).
-- **`phone_numbers`** (CharField): Phone numbers extracted from the resume (optional).
-- **`personal_website`** (CharField): Personal website URL (optional).
-- **`websites`** (JSONField): List of websites extracted from the resume (optional).
-- **`emails`** (CharField): Email addresses extracted from the resume (optional).
-- **`date_of_birth`** (CharField): Date of birth extracted from the resume (optional).
-- **`addresses`** (JSONField): Addresses extracted from the resume (optional).
-- **`summary`** (TextField): Summary of the resume (optional).
-- **`ai_summary`** (TextField): AI-generated summary of the resume (optional).
-- **`education`** (JSONField): Education details (optional).
-- **`work_experience`** (JSONField): Work experience details (optional).
-- **`duration_per_work`** (JSONField): Duration of each work experience (optional).
-- **`total_duration`** (IntegerField): Total work experience duration (optional).
-- **`skills`** (JSONField): Skills listed in the resume (optional).
-- **`skills_matched`** (JSONField): Skills matched with job requirements (optional).
-- **`skill_match_count`** (IntegerField): Number of matched skills (optional).
-- **`certifications`** (JSONField): Certifications listed in the resume (optional).
-- **`projects`** (JSONField): Projects listed in the resume (optional).
-- **`overall_score`** (DecimalField): Overall score of the resume (optional).
-- **`resume_file`** (FileField): Uploaded resume file (optional).
-- **`introduction_video`** (FileField): Uploaded introduction video (optional).
-- **`upload_count`** (IntegerField): Number of times the resume was uploaded (default: 0).
-- **`task_duration_seconds`** (IntegerField): Time taken to process the resume (optional).
-- **`completed`** (BooleanField): Indicates if resume processing is completed (default: False).
-- **`task_message`** (CharField): Status message for resume processing (optional).
-- **`retries`** (PositiveIntegerField): Number of retries for processing (default: 0).
-- **`created_at`** (DateTimeField): Timestamp when the resume was created (optional).
-- **`updated_at`** (DateTimeField): Timestamp when the resume was last updated (optional).
-- **`relevant_experience_in_months`** (IntegerField): Relevant experience in months (optional).
-- **`expected_ctc`** (IntegerField): Expected CTC (optional).
-- **`status_text`** (CharField): Status of the resume (default: "Under Review").
-- **`approved_at`** (DateTimeField): Timestamp when the resume was approved (optional).
-- **`is_approved`** (BooleanField): Indicates if the resume is approved (default: False).
-- **`approved_by`** (ForeignKey): User who approved the resume (optional).
-- **`updated_by`** (ForeignKey): User who last updated the resume status (optional).
-- **`users_shared_with`** (ManyToManyField): Users with whom the resume is shared (optional).
+- `job` (ForeignKey): The job associated with the resume (optional).
+- `resume_score` (ForeignKey): The resume score (optional).
+- `score_weight` (ForeignKey): Weightage used for scoring (optional).
+- `preference` (ForeignKey): Resume screening preferences (optional).
+- `name` (CharField): Name of the resume (optional).
+- `resume_json` (JSONField): Resume data in JSON format (optional).
+- `input_tokens` (IntegerField): Number of input tokens used for processing (optional).
+- `output_tokens` (IntegerField): Number of output tokens generated (optional).
+- `total_tokens` (IntegerField): Total tokens used (optional).
+- `cost` (DecimalField): Cost of processing the resume (optional).
+- `phone_numbers` (CharField): Phone numbers extracted from the resume (optional).
+- `personal_website` (CharField): Personal website URL (optional).
+- `websites` (JSONField): List of websites extracted from the resume (optional).
+- `emails` (CharField): Email addresses extracted from the resume (optional).
+- `date_of_birth` (CharField): Date of birth extracted from the resume (optional).
+- `addresses` (JSONField): Addresses extracted from the resume (optional).
+- `summary` (TextField): Summary of the resume (optional).
+- `ai_summary` (TextField): AI-generated summary of the resume (optional).
+- `education` (JSONField): Education details (optional).
+- `work_experience` (JSONField): Work experience details (optional).
+- `duration_per_work` (JSONField): Duration of each work experience (optional).
+- `total_duration` (IntegerField): Total work experience duration (optional).
+- `skills` (JSONField): Skills listed in the resume (optional).
+- `skills_matched` (JSONField): Skills matched with job requirements (optional).
+- `skill_match_count` (IntegerField): Number of matched skills (optional).
+- `certifications` (JSONField): Certifications listed in the resume (optional).
+- `projects` (JSONField): Projects listed in the resume (optional).
+- `overall_score` (DecimalField): Overall score of the resume (optional).
+- `resume_file` (FileField): Uploaded resume file (optional).
+- `introduction_video` (FileField): Uploaded introduction video (optional).
+- `upload_count` (IntegerField): Number of times the resume was uploaded (default: 0).
+- `task_duration_seconds` (IntegerField): Time taken to process the resume (optional).
+- `completed` (BooleanField): Indicates if resume processing is completed (default: False).
+- `task_message` (CharField): Status message for resume processing (optional).
+- `retries` (PositiveIntegerField): Number of retries for processing (default: 0).
+- `created_at` (DateTimeField): Timestamp when the resume was created (optional).
+- `updated_at` (DateTimeField): Timestamp when the resume was last updated (optional).
+- `relevant_experience_in_months` (IntegerField): Relevant experience in months (optional).
+- `expected_ctc` (IntegerField): Expected CTC (optional).
+- `status_text` (CharField): Status of the resume (default: "Under Review").
+- `approved_at` (DateTimeField): Timestamp when the resume was approved (optional).
+- `is_approved` (BooleanField): Indicates if the resume is approved (default: False).
+- `approved_by` (ForeignKey): User who approved the resume (optional).
+- `updated_by` (ForeignKey): User who last updated the resume status (optional).
+- `users_shared_with` (ManyToManyField): Users with whom the resume is shared (optional).
 
 ### Methods:
-- **`__str__`**: Returns the resume ID as a string.
+- `__str__`: Returns the resume ID as a string.
 
 ---
 
-## **OpenAICost**
+## OpenAICost
 Stores costs associated with OpenAI API usage.
 
 ### Fields:
-- **`task_name`** (CharField): Name of the task (optional).
-- **`task_type`** (CharField): Type of the task (optional).
-- **`resume`** (ForeignKey): The resume associated with the cost (optional).
-- **`job`** (ForeignKey): The job associated with the cost (optional).
-- **`object_name`** (CharField): Name of the object being processed (optional).
-- **`prompt_tokens`** (IntegerField): Number of prompt tokens used (optional).
-- **`completion_tokens`** (IntegerField): Number of completion tokens used (optional).
-- **`total_tokens`** (IntegerField): Total tokens used (optional).
-- **`cost`** (DecimalField): Cost of the task (optional).
+- `task_name` (CharField): Name of the task (optional).
+- `task_type` (CharField): Type of the task (optional).
+- `resume` (ForeignKey): The resume associated with the cost (optional).
+- `job` (ForeignKey): The job associated with the cost (optional).
+- `object_name` (CharField): Name of the object being processed (optional).
+- `prompt_tokens` (IntegerField): Number of prompt tokens used (optional).
+- `completion_tokens` (IntegerField): Number of completion tokens used (optional).
+- `total_tokens` (IntegerField): Total tokens used (optional).
+- `cost` (DecimalField): Cost of the task (optional).
 
 ---

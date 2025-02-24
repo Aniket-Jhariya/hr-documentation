@@ -8,7 +8,8 @@ sidebar_position: 1
 - **View:** CandidateViewSet
 - Handles common filtering logic for candidates by job, resumes, and stage. Fetch the base queryset for candidates with shared job filtering logic.
 - **Payload**
-    - X
+    - GET
+
     ```json
     {
         ...
@@ -38,6 +39,7 @@ sidebar_position: 1
 - Filters and retrieves tests information of authenticated users with admin access.
 - **Payload**
     - list
+
     ```json
     {
         "user":{
@@ -62,6 +64,7 @@ sidebar_position: 1
 - Based on the job_id, filters and retrieves the personality screening information for authenticated users with admin access.
 - **Payload**
     - list
+
     ```json
     {
         "user":{
@@ -222,6 +225,7 @@ Handles CRUD operations for the `Candidate` model.
 
 - **Payload**
     - GET
+    
     **Response**
     ```json
     {

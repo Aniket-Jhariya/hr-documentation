@@ -9,6 +9,7 @@ sidebar_position: 1
 - Fetch the candidate's personality screening object based on the candidate id.
 - **Payload**
     - GET
+    
     **Response**
     ```json
     {
@@ -26,6 +27,7 @@ sidebar_position: 1
 - Queries from the database, the answers for the screening of a particular screening id.
 - **Payload**
     - list
+
     ```json
     {
         "screening_id":12345
@@ -46,7 +48,8 @@ sidebar_position: 1
 - **View:** PersonalityScreeningListByCandidateAndJob
 - Queries from the database, the answers for a screening based on the candidate id and job id.
 - **Payload**
-    - X
+    - list
+
     ```json
     {
         "candidate_id":123,

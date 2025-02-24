@@ -10,6 +10,7 @@ sidebar_position: 1
 - Filter and retrieve Interview module objects created by employees of the user's organization.
 - **Payload**
     - list
+    
     ```json
     {
         "user":{
@@ -62,6 +63,7 @@ sidebar_position: 1
 - Retrieves feedback based on the job id and candidate id.
 - **Payload**
     - GET
+
     **Response**
     ```json
     [
@@ -78,6 +80,7 @@ sidebar_position: 1
 - Sets the resume screening step to shortlisted status and initiates further new interview steps.
 - **Payload**
     - POST
+
     ```json
     {
         "candidate_id": 1234,
@@ -110,6 +113,7 @@ sidebar_position: 1
 - Sets the resume screening step to shortlisted status and initiates if no interview step already.
 - **Payload**
     - POST
+
     ```json
     {
         "status":"Shortlisted",
@@ -135,6 +139,7 @@ sidebar_position: 1
 - Updates the interview step based on the candidate id or job id.
 - **Payload**
     - POST
+
     ```json
     {
         "action":"Start",
@@ -168,6 +173,7 @@ sidebar_position: 1
 - Updates the interview status based on the candidate id or job id.
 - **Payload**
     - PATCH
+
     ```json
     {
         "status":"Shortlisted",
@@ -195,6 +201,7 @@ sidebar_position: 1
 - Filters and retrieves answer sets of personality and resume screening based on candidate id and service id.
 - **Payload**
     - list
+
     ```json
     {
         "candidate_id": 123,
@@ -259,6 +266,7 @@ sidebar_position: 1
 - Retrieves the video answer files in the answer set using id.
 - **Payload**
     - GET
+
     **Response**
     ```http
     FileResponse: ...audio file as attachment
@@ -269,6 +277,7 @@ sidebar_position: 1
 - Retrieves the thumbnail file of video answers in the answer set using id.
 - **Payload**
     - GET
+
     **Response**
     ```http
     FileResponse: ...audio file as attachment
@@ -278,7 +287,8 @@ sidebar_position: 1
 - **View:** GeneratePresignedURLView
 - Creates connection with S3 client and generates a url for access to video responses. 
 - **Payload**
-    - 
+    - GET
+
     ```json
     {
         "video_filename":"xyz.mp4",
@@ -349,6 +359,7 @@ Handles CRUD operations for the `QuestionSet` model.
 
 - **Payload**
     - GET
+
     **Response**
     ```json
     {
@@ -381,6 +392,7 @@ Handles CRUD operations for the `Question` model.
 
 - **Payload**
     - GET
+
     **Response**
     ```json
     {

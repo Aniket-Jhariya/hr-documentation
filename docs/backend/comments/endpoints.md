@@ -9,6 +9,7 @@ sidebar_position: 1
 - Filter the content type by 'resumescreening', 'personalityscreening' and 'test'.
 - **Payload**
     - GET
+    
     **Response**
     ```json
     {
@@ -35,6 +36,7 @@ Handles CRUD operations for the `Comment` model.
 
 - **Payload**
     - GET
+
     **Response**
     ```json
     {

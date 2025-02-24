@@ -8,7 +8,8 @@ sidebar_position: 1
 - **View:** JobListView
 - Retrieves a list of all the owned and shared jobs of a user based on the user id. 
 - **Payload**
-    - X
+    - list
+    
     ```json
     {
         "user":{
@@ -141,6 +142,7 @@ sidebar_position: 1
 - Filters and retrieves the details of candidates and stage within a job id.
 - **Payload**
     - GET
+
     **Response**
     ```json
     [
@@ -180,6 +182,7 @@ Handles CRUD operations for the `Job` model.
 
 - **Payload**
   - GET
+
   ```json
   {
   "users_shared_with": [
@@ -279,6 +282,7 @@ Handles CRUD operations for the `Criteria` model.
 
 - **Payload**
   - GET
+
   **Response**
   ```json
   [

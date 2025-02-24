@@ -9,6 +9,7 @@ sidebar_position: 1
 - Filters and retrieves a list of candidates created by requesting user and associated users in the organisation. Filters resumes based on job_id context.
 - **Payload**
     - POST
+
     ```json 
     {
         "user":{
@@ -37,6 +38,7 @@ sidebar_position: 1
 - Filters and retrieves a list of candidates under the same job they applied to and on resume basis, ordered on the basis of the time of creation.
 - **Payload**
     - POST
+
     ```json 
     {
         "user":{
@@ -61,6 +63,7 @@ sidebar_position: 1
 - Retrieves a the existing the stages of evaluation in the candidate records.
 - **Payload**
     - GET
+
     ```json 
     {
         ...
@@ -109,6 +112,7 @@ sidebar_position: 1
 - Filters and retrieves a list of candidates under the same job_id and optionally on the stage_name, for only authenticated user.
 - **Payload**
     - POST
+
     ```json 
     {
         ...
@@ -205,6 +209,7 @@ sidebar_position: 1
 - Filters and retrieves a list of candidates under the same job_id and optionally on the stage_name, for only authenticated user.
 - **Payload**
     - list
+
     ```json 
     {
         ...
@@ -281,6 +286,7 @@ sidebar_position: 1
 - Filters and retrieves a list of candidates by job_id for authenticated users in the order of latest updated.
 - **Payload**
     - list
+
     ```json 
     {
         ...
@@ -300,6 +306,7 @@ sidebar_position: 1
 - Retrieves and downloads the resume from the candidate's user id for authenticated users.
 - **Payload**
     - GET
+
     **Response**
     ```json
     {
@@ -311,6 +318,7 @@ sidebar_position: 1
 - Checks if a candidate with the given email has applied to the specified job and their resume for that job.
 - **Payload**
     - GET
+
     **Response**
     ```json
     {
@@ -332,6 +340,7 @@ sidebar_position: 1
 - Filters and retrieves a list of candidates based on the specified job, interview step service being 'resume Screening', and are completed.
 - **Payload**
     - list
+    
     ```json 
     {
         "job_id": 1234
@@ -406,6 +415,7 @@ Handles CRUD operations with custom logic for job access validation, dynamic ser
 
 #### Payload
 -GET 
+
 **Response**
 ```json
 {
@@ -689,6 +699,7 @@ Returns aggregated counts for jobs, applicants, or both, based on the authentica
 
 - **Payload**
     - GET
+    
     ```json
     {
         "user":{
