@@ -96,6 +96,12 @@ const config = {
             position: 'left',
             label: 'Documentation',
           },
+          {
+            type:'custom-logout',
+            position: "right",
+            itemProp: 44,
+            anotherProp:"xyz"
+          }
         ],
       },
       footer: {

@@ -164,17 +164,154 @@ sidebar_position: 1
 |201|SUCCESS: Created|
 |400|FAIL: File not uploaded/Invalid format|
 
-### `X/`
-- **View:** X
-- X
+### `testlog/`
+- **View:** TestLogViewSet
+- Handles CRUD operations for test logs.
+- Supports filtering by `job_id` and authentication-based access.
+
 - **Payload**
-    - X
-    ```json
-    {
-    }
-    ```
+    - GET
     **Response**
     ```json
     {
+        "id": 1,
+        "assigned_to": 292,
+        "job": 7,
+        "completed": true,
+        "average_percentage": 85.5
     }
     ```
+
+### `tests/`
+- **View:** TestViewSet
+- Manages test creation and retrieval.
+- Supports filtering and different serializers for detailed views.
+
+- **Payload**
+    - GET
+    **Response**
+    ```json
+    {
+        "id": 12,
+        "title": "Python Basics Test",
+        "created_by": 102,
+        "total_question": 15
+    }
+    ```
+
+### `questions/`
+- **View:** QuestionsViewset
+- Manages test questions.
+- Filters based on `test_id` and `assessment_type`.
+
+- **Payload**
+    - GET
+    **Response**
+    ```json
+    {
+        "id": 100,
+        "text": "What is Python?",
+        "choices": [
+            { "value": "A programming language", "correct": true },
+            { "value": "A snake", "correct": false }
+        ]
+    }
+    ```
+
+### `answers/`
+- **View:** AnswerViewset
+- Handles answer submissions and correctness evaluation.
+- Supports `MCQ`, `text`, and `SQL` type questions.
+
+- **Payload**
+    - POST
+    **Response**
+    ```json
+    {
+        "message": "Answer recorded Successfully"
+    }
+    ```
+
+### `result/`
+- **View:** ResultViewset
+- Stores and evaluates test results.
+- Calculates percentage scores and determines pass/fail.
+
+- **Payload**
+    - GET
+    **Response**
+    ```json
+    {
+        "candidate": 345,
+        "score": 78.2,
+        "test": 15
+    }
+    ```
+
+### `proctoring/`
+- **View:** ProctoringViewSet
+- Manages online proctoring for tests.
+- Automatically submits tests upon repeated violations.
+
+- **Payload**
+    - PATCH
+    **Response**
+    ```json
+    {
+        "message": "The test has been submitted due to repeated tab switching."
+    }
+    ```
+
+---
+
+## ViewSets
+
+### `TestViewSet`
+Handles CRUD operations for the `Test` model.
+
+#### Purpose:
+- Manages test creation and retrieval.
+- Filters tests by title and publication status.
+
+### `QuestionsViewset`
+Handles CRUD operations for `Questions`.
+
+#### Purpose:
+- Manages test questions and options.
+- Filters questions by `test_id`.
+
+### `AnswerViewset`
+Handles CRUD operations for `Answers`.
+
+#### Purpose:
+- Manages candidate answers and correctness evaluation.
+- Supports MCQs, text-based answers, and SQL queries.
+
+### `ResultViewset`
+Handles CRUD operations for `Result`.
+
+#### Purpose:
+- Stores and evaluates test results.
+- Calculates percentage scores.
+
+### `ProctoringViewSet`
+Handles online proctoring for tests.
+
+#### Purpose:
+- Tracks violations like tab switching and fullscreen exits.
+- Auto-submits test upon repeated violations.
+
+### `ShareTestViewset`
+Handles test sharing with candidates.
+
+#### Purpose:
+- Assigns tests to candidates.
+- Sends test details via email.
+
+### `AssignedAssessmentQuestionViewSet`
+Handles fetching assigned assessment questions.
+
+#### Purpose:
+- Retrieves test questions based on `test_id`.
+- Supports randomized question selection.
+

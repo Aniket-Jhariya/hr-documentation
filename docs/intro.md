@@ -1,6 +1,6 @@
 ---
 sidebar_position: 1
-sidebar_label: Homepage
+sidebar_label: Setup-Guide
 ---
 
 # Setup

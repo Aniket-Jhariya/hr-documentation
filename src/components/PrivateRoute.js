@@ -7,7 +7,6 @@ const PrivateRoute = ({ children }) => {
     const [user, setUser] = useState(null);
     const [loading, setLoading] = useState(true);
     const history = useHistory(); // For redirecting after signup
-
     useEffect(() => {
         const unsubscribe = onAuthChange((user) => {
             setUser(user);
@@ -23,22 +22,21 @@ const PrivateRoute = ({ children }) => {
     }, [history]);
 
     if (loading) {
-        return <p>Loading...</p>;
+        return (
+            <div style={styles.loadingContainer}>
+                <div style={styles.spinner}></div>
+                <p style={styles.loadingText}>Loading...</p>
+            </div>
+        );
     }
+        
 
     if (!user) {
         return <EmailLoginForm />; // Show login form if user is not authenticated
     }
-
     // If user is authenticated and email is verified, show the protected content
     return (
         <>
-            <div style={styles.header}>
-                <span style={styles.welcomeText}>Logged in- <span style={styles.userText}>{user.email}</span></span>
-                <button style={styles.logoutButton} onClick={logout}>
-                    Logout
-                </button>
-            </div>
             {children}
         </>
     );
@@ -78,4 +76,30 @@ const styles = {
         transition: "background-color 0.3s ease, transform 0.2s ease",
         boxShadow: "0 2px 4px rgba(0, 0, 0, 0.1)",
     },
+    loadingContainer: {
+        display: "flex",
+        flexDirection: "column",
+        justifyContent: "center",
+        alignItems: "center",
+        height: "100vh",
+        backgroundColor: "rgba(0, 0, 0, 0.05)"
+    },
+    spinner: {
+        width: "50px",
+        height: "50px",
+        border: "5px solid rgba(255, 255, 255, 0.3)",
+        borderTop: "5px solid #667eea",
+        borderRadius: "50%",
+        animation: "spin 0.2s linear infinite"
+    },
+    loadingText: {
+        marginTop: "10px",
+        fontSize: "18px",
+        color: "#667eea",
+        fontWeight: "bold"
+    },
+    "@keyframes spin": {
+        "0%": { transform: "rotate(0deg)" },
+        "100%": { transform: "rotate(360deg)" }
+    }
 };

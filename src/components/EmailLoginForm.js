@@ -13,40 +13,54 @@ const EmailLoginForm = () => {
     const history = useHistory(); // For navigation
 
     const showNotification = (message, type = "info") => {
-        setNotification({ message, type });
-        setTimeout(() => setNotification(null), 3000); // Hide notification after 3 seconds
+        // First remove any existing notification to prevent stacking
+        setNotification(null);
+        
+        // Small delay to ensure state is updated before showing new notification
+        setTimeout(() => {
+            setNotification({ message, type });
+            
+            // Log for debugging
+            console.log(`Showing ${type} notification: ${message}`);
+        }, 50);
+        
+        // Clear notification after 3 seconds
+        setTimeout(() => setNotification(null), 3000);
     };
-
+    
     const handleSubmit = async (e) => {
         e.preventDefault();
         setError("");
         setLoading(true);
-
+    
         try {
+            let response;
             if (isSignUp) {
-                // Sign up logic
-                await signUp(email, password);
-                showNotification("Signup successful! Please check your email to verify your account.", "success");
-                history.push("/login"); // Redirect to login page after signup
+                response = await signUp(email, password);
             } else {
-                // Login logic
-                const user = await signIn(email, password);
-
-                // Check if email is verified
-                if (user && !user.emailVerified) {
-                    setError("Please verify your email before logging in.");
-                    await logout(); // Log out the user if email is not verified
-                } else {
-                    showNotification("Logged in successfully!", "success");
-                    // Redirect to a protected page or home page
-                    history.push("/");
+                response = await signIn(email, password);
+            }
+            // Check if the operation was successful before showing success notification
+            if (response && (response.success === true || response.success === "true")) {
+                // Explicit success message
+                const successMessage = isSignUp ? "Account created successfully!" : "Login successful!";
+                showNotification(successMessage, "success");
+                
+                // Only redirect after successful login
+                if (!isSignUp) {
+                    history.push("/hr-documentation/intro");
+                        // Reduced to match animation timing
                 }
+            } else {
+                // Handle case where response exists but success is false
+                const errorMsg = response?.message || "Operation failed";
+                showNotification(errorMsg, "error");
             }
         } catch (err) {
-            setError(err.message || "Authentication failed");
-            showNotification(err.message || "Authentication failed", "error");
+            console.error("Auth error:", err);
+            showNotification(err?.message || "Authentication failed", "error");
         } finally {
-            setLoading(false); // Reset loading state
+            setLoading(false);
         }
     };
 

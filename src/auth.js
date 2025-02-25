@@ -1,5 +1,6 @@
 import { initializeApp } from "firebase/app";
 import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut, onAuthStateChanged, sendEmailVerification } from "firebase/auth";
+import { useHistory } from "@docusaurus/router";
 // require('dotenv-webpack').config()
 
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
@@ -18,46 +19,36 @@ const firebaseConfig = {
   const app = initializeApp(firebaseConfig);
   const auth = getAuth(app);
   
-  // Sign Up Function
   export const signUp = async (email, password) => {
-    const allowedDomain = "diacto.com"; // Replace with your allowed domain
+    const allowedDomain = "diacto.com"; // Allowed email domain check
 
-    // Check if the email domain is allowed
     if (!email.endsWith(`@${allowedDomain}`)) {
-        alert(`Only users with @${allowedDomain} emails are allowed to sign up.`);
-        return;
+        return { success: false, message: `Only users with @${allowedDomain} emails can sign up.` };
     }
 
     try {
         const userCredential = await createUserWithEmailAndPassword(auth, email, password);
         const user = userCredential.user;
-
-        // Send verification email
         await sendEmailVerification(user);
-        alert("Account created successfully! Please check your email to verify your account.");
+
+        return { success: true, message: "Account created successfully! Please check your email to verify your account." };
     } catch (error) {
-        console.error("Signup Error:", error.message);
-        alert(error.message);
+        return { success: false, message: error.message };
     }
 };
-  
-  // Sign In Function
-  export const signIn = async (email, password) => {
+
+export const signIn = async (email, password) => {
     try {
         const userCredential = await signInWithEmailAndPassword(auth, email, password);
         const user = userCredential.user;
 
-        // Check if the email is verified
         if (!user.emailVerified) {
-            alert("Please verify your email before logging in.");
-            await logout(); // Log out the user if email is not verified
-            return;
+            await logout(); // Log out the user if not verified
+            return { success: false, message: "Please verify your email before logging in." };
         }
-
-        alert("Logged in successfully!");
+        return { success: true, message: "Logged in successfully!" };
     } catch (error) {
-        console.error("Login Error:", error.message);
-        alert(error.message);
+        return { success: false, message: error.message };
     }
 };
 
@@ -81,14 +72,14 @@ export const resendVerificationEmail = async () => {
   
   // Listen for Authentication Changes
   export const onAuthChange = (callback) => {
-    onAuthStateChanged(auth, (user) => {
+    return onAuthStateChanged(auth, (user) => {
         if (user) {
             // Check if the email is verified
             if (!user.emailVerified) {
                 alert("Please verify your email to access the app.");
                 logout(); // Log out the user if email is not verified
-            } else {
-                callback(user); // Proceed if email is verified
+            } else{
+                setTimeout(() => {callback(user), 5000})
             }
         } else {
             callback(null); // No user is signed in
