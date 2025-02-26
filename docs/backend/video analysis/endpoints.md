@@ -29,7 +29,7 @@ sidebar_position: 1
 ### `VideoAnalysisViewSet`
 Handles CRUD operations for the `VideoAnalysis` model.
 
-#### **Purpose:**
+**Purpose:**
 - Analyzes video responses for candidates.
 - Processes video and audio files.
 - Computes emotion detection, eye analysis, and speech analysis.
@@ -65,7 +65,7 @@ Handles CRUD operations for the `VideoAnalysis` model.
 ### `SpeechAnalysisViewSet`
 Handles speech processing for audio files.
 
-#### **Purpose:**
+ **Purpose:**
 - Extracts speech features such as rate of speech, pauses, and articulation rate.
 - Detects silent pauses and dysfluencies.
 - Computes phonation time ratio and filled pauses.
@@ -76,7 +76,7 @@ Handles speech processing for audio files.
 ### `EyeAnalysisViewSet`
 Handles eye-tracking analysis from video frames.
 
-#### **Purpose:**
+**Purpose:**
 - Tracks eye movement and blinks.
 - Determines gaze direction: left, right, or center.
 - Computes total blinks and percentage of gaze in each direction.

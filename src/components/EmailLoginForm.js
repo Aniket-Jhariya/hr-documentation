@@ -48,7 +48,7 @@ const EmailLoginForm = () => {
                 
                 // Only redirect after successful login
                 if (!isSignUp) {
-                    history.push("/hr-documentation/intro");
+                    history.push("/hr-documentation");
                         // Reduced to match animation timing
                 }
             } else {
