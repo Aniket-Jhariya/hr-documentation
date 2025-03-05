@@ -47,7 +47,7 @@ The `CandidateInterface` component is specifically designed to handle the candid
 
 The `Modal.js` file is a React component that provides a reusable modal dialog interface. It is designed to be a flexible and generic component that can be used throughout the CandidHR frontend application to display content in a modal overlay.
 
-- **File Path**: `Diacto\CandidHR\hr-frontend\src\components\candidate-interface\Modal.js`
+- **File Path**: `\hr-frontend\src\components\candidate-interface\Modal.js`
 
 The `Modal` component serves as a container for displaying content in a modal dialog. It is a presentational component that does not manage its own state or behavior but instead relies on props to render its content. This makes it highly reusable and easy to integrate into different parts of the application.
 
@@ -87,7 +87,7 @@ The component uses CSS classes (`modal`, `modal-overlay`, `modal-content`) for s
 
 The `Completed.js` file serves as the interface for candidates who have completed a test. It provides a summary of the completed test, including the total number of questions and the time taken. Additionally, it checks if there are any pending tests and allows the candidate to proceed to the next test if available.
 
-- **File Path**: `Diacto\CandidHR\hr-frontend\src\components\candidate-interface\Completed.js`
+- **File Path**: `\hr-frontend\src\components\candidate-interface\Completed.js`
 - **Dependencies**:
   - **React Hooks**: `useEffect`, `useState`
   - **React Router**: `useNavigate`, `useParams`
@@ -150,7 +150,7 @@ The `Completed.js` file serves as the interface for candidates who have complete
 ## Link Expired 
 The `LinkExpired` component is designed to display an error message when a candidate attempts to access an invalid or expired assessment link. It is part of the candidate interface in the HR frontend application.
 
-- **File Path**: `Diacto\CandidHR\hr-frontend\src\components\candidate-interface\LinkExpired.js`
+- **File Path**: `\hr-frontend\src\components\candidate-interface\LinkExpired.js`
 
 ### Props
 | Prop Name | Type       | Description                                                                 |

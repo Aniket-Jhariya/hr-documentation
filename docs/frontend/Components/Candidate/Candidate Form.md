@@ -249,60 +249,49 @@ The `Questionnaire.js` file is a React component responsible for rendering and m
 ### Functions
 
 1. `handleTimeout`
-- **Purpose**: Handles the timeout event for the current question.
-- **Parameters**: None.
-- **Return Value**: None.
-- **Side Effects**:
+- **Purpose**: 
+  - Handles the timeout event for the current question.
   - Stops recording if the question type is `video`.
   - Calls `handleSubmit` to submit the answer.
-
+  
 2. `handleSubmit`
-- **Purpose**: Submits the candidate's answer to the API.
-- **Parameters**: None.
-- **Return Value**: None.
-- **Side Effects**:
+- **Purpose**: 
+  - Submits the candidate's answer to the API.
   - Constructs a payload with the candidate's answer and submits it to the API.
   - Updates the question index or marks the test as complete.
-  - Resets the answer state for the next question.
+  - Resets the answer state for the next question.  
 - **Error Handling**:
   - Logs errors if the API request fails.
 
 3. `resetAnswerState`
-- **Purpose**: Resets the state variables related to the candidate's answer.
-- **Parameters**: None.
-- **Return Value**: None.
-- **Side Effects**:
-  - Clears `textAnswer`, `selectedChoice`, and `selectedChoiceIds`.
+- **Purpose**:
+  - Resets the state variables related to the candidate's answer.
+  - Clears `textAnswer`, `selectedChoice`, and `selectedChoiceIds`.  
 
 4. `handleCorrectChange`
-- **Purpose**: Updates the selected choices for single/multiple-choice questions.
+- **Purpose**: 
+  - Updates the selected choices for single/multiple-choice questions.
+  - Updates `selectedChoice` and `selectedChoiceIds` based on the input type.
 - **Parameters**:
   - `choice` (Object): The selected choice.
   - `e` (Event): The event object containing the input type (`radio` or `checkbox`).
-- **Return Value**: None.
-- **Side Effects**:
-  - Updates `selectedChoice` and `selectedChoiceIds` based on the input type.
+  
 
 5. `handleAnswerChange`
-- **Purpose**: Updates the candidate's answer for text-based questions.
-- **Parameters**:
-  - `e` (Event): The event object containing the input value.
-- **Return Value**: None.
-- **Side Effects**:
+- **Purpose**: 
+  - Updates the candidate's answer for text-based questions.
   - Updates `textAnswer` with the input value.
+- **Parameters**:
+  - `e` (Event): The event object containing the input value.  
 
 6. `handleStartRecording`
-- **Purpose**: Starts audio/video recording.
-- **Parameters**: None.
-- **Return Value**: None.
-- **Side Effects**:
-  - Sets `isRecording` to `true`.
+- **Purpose**:
+  - Starts audio/video recording.
+  - Sets `isRecording` to `true`.  
 
 7. `handleStopRecording`
-- **Purpose**: Stops audio/video recording.
-- **Parameters**: None.
-- **Return Value**: None.
-- **Side Effects**:
+- **Purpose**:
+  - Stops audio/video recording.
   - Sets `isRecording` to `false`.
 
 ### Answer Submission Payload
