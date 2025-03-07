@@ -367,3 +367,386 @@ The `EditableWorkflow` component is designed to manage and display an editable w
 - **Error Handling**: No explicit error handling is present. Errors are likely handled by parent components.
 
 ---
+
+## Interview Workflow
+
+The `InterviewWorkflow.js` file serves as the core interface for managing and customizing interview workflows within the CandidHR application. It allows users to create, edit, and save interview steps (rounds), configure preferences, and manage question sets for different types of screenings.
+
+- **Dependencies**:
+  - `@dnd-kit/core`: Provides drag-and-drop functionality.
+  - `react-router-dom`: Handles navigation and URL parameters.
+
+### State Variables
+| Variable Name            | Purpose                                                                 |
+|--------------------------|-------------------------------------------------------------------------|
+| `openDrawer`             | Controls the visibility of a drawer/sidebar.                           |
+| `containers`             | Represents interview steps (rounds) with them          |
+| `activeId`               | Tracks the currently active draggable item ID.  |
+| `parent`                 | Tracks the parent container for drag-and-drop|
+| `currentDraggable`       | Represents the currently dragged module.            |
+| `interviewsLoading`      | Indicates if interview data is being fetched.     |
+| `saving`                 | Indicates if the workflow is being saved.            |
+| `currentContainer`       | Represents the currently selected interview step.   |
+| `showQuestions`          | Controls the visibility of the questions section.  |
+| `optionsData`            | Stores configuration data for the selected step.     |
+| `currentTab`             | Represents the currently selected tab in the setting|
+| `showModal`              | Controls the visibility of the question set creation.|
+| `questionSetName`        | Stores the name of a new question set.              |
+| `questionSets`           | Stores the list of available question sets.   |
+| `questionSetLoading`     | Indicates if question sets are being fetched.    |
+| `selectedQuestionSet`    | Represents the currently selected question set.                        |
+| `interviewData`          | Stores data for the current interview.                                |
+
+### Constants
+| Constant Name            | Purpose                                                                 |
+|--------------------------|-------------------------------------------------------------------------|
+| `settingTabs`            | Defines the tabs available in the settings panel.                       |
+| `modules`                | Defines the draggable modules available for adding to the workflow.     |
+| `selectStyle`            | Custom styles for the dropdown component.                               |
+
+
+### Functions and Methods
+
+1. `handleDragStart(event)`
+- **Purpose**: 
+  - Sets the active draggable item ID and updates the `currentDraggable` state.
+  - Updates `activeId` and `currentDraggable`.
+- **Parameters**:
+  - `event`: Drag event object.
+
+2. `handleDragEnd(event)`
+- **Purpose**: 
+  - Handles the end of a drag operation, updating the `containers` state with the new content.
+  - Updates `containers`, `activeId`, `currentDraggable`, and `parent`.
+- **Parameters**:
+  - `event`: Drag event object.
+
+3. `handleCancelClick()`
+- **Purpose**: 
+  - Navigates the user back to the interviews list.
+  - Uses `navigate` from `react-router-dom` to change the route.
+
+4. `handleClose()`
+- **Purpose**: 
+  - Closes the question set creation modal and resets related state.
+  - Updates `questionSetName` and `showModal`.
+
+5. `addRound(params)`
+- **Purpose**: 
+  - Adds a new round to the interview workflow.
+  - Updates `containers` with a new step.
+
+6. `fetchInterview()`
+- **Purpose**: 
+  - Fetches interview data from the backend API.
+  - Updates `interviewData` and `containers` with fetched data.
+- **Error Handling**: Catches and logs errors, updates `interviewsLoading`.
+
+7. `saveStepstoWorkflow()`
+- **Purpose**: 
+  - Saves the current workflow steps to the backend.
+  - Updates `saving` and `containers` with the saved data.
+- **Error Handling**: Catches and logs errors, updates `saving`.
+
+8. `removeContainer(itemId)`
+- **Purpose**:
+  - Removes a container (interview step) from the workflow.
+  - Updates `containers`.
+- **Parameters**:
+  - `itemId`: ID of the container to remove.
+
+9. `createQuestionSet(e)`
+- **Purpose**:
+  - Creates a new question set and updates the state.
+  - Updates `questionSets`, `optionsData`, `selectedQuestionSet`, and `showModal`.
+- **Parameters**:
+  - `e`: Form submission event.
+- **Error Handling**: Catches and logs errors, updates `showModal`.
+
+10. `fetchQuestionSet()`
+- **Purpose**:
+  - Fetches available question sets from the backend.
+  - Updates `questionSets` and `questionSetLoading`.
+- **Error Handling**: Catches and logs errors, updates `questionSetLoading`.
+
+11. `handleSelectChange(selectedOption)`
+- **Purpose**: 
+  - Updates the selected question set and related state.
+  - Updates `optionsData` and `selectedQuestionSet`.
+- **Parameters**:
+  - `selectedOption`: Selected question set object.
+
+12. `onContainerChange(item)`
+- **Purpose**:
+  - Handles changes to the selected container and updates related state.
+  - Updates `currentContainer`, `showQuestions`, and `optionsData`.
+- **Parameters**:
+  - `item`: Selected container object.
+
+---
+
+## MiniCard 
+
+The `MiniCard` component is designed to display a compact card with an icon, label, and an optional service menu. It is primarily used to represent a selectable or interactive item in a list or grid layout. 
+
+### Props
+|Prop Name| Description|
+|---|---|
+|`item`| Contains the data to be displayed in the card. It has the following fields:|
+|`id`|  A unique identifier for the item.|
+|`icon`|  The URL or path to the icon image.|
+|`label`|  The text label to display below the icon.|
+|`id`|  A custom ID to override the `item.id` for the card's DOM element.|
+|`current`| Indicates whether the card is currently selected or active. When `true`, the card is highlighted with a ring.|
+
+### Functions and Methods
+
+1. `MiniCard` Component
+- **Parameters**:
+  - `item` (Object): The data object containing `id`, `icon`, and `label`.
+  - `id` (String/Number, optional): A custom ID for the card.
+  - `current` (Boolean, optional): Indicates if the card is currently selected.
+- **Return Value**:
+  - A JSX element representing the card UI.
+---
+
+## Questions
+
+The `Questions.js` file is responsible for managing and displaying questions within a questionnaire or interview setup. It allows users to select, add, and remove questions, configure question types, and manage question sets.
+
+- **Dependencies**:
+  - `@heroicons/react/20/solid`: Provides icons for UI elements.
+  - `react-select`: Used for dropdowns (e.g., selecting question sets).
+
+### Props 
+1. **Answer Types**
+An array of objects representing the types of answers allowed for questions:
+```js
+const answerTypes = [
+    { label: "Text", value: "text" },
+    { label: "Audio", value: "audio" },
+    { label: "Video", value: "video" },
+];
+```
+|Prop Name| Description|
+|---|---|
+ |`label`| Display name for the answer type.|
+ |`value`| Internal value used for logic.|
+
+2. **State Variables**
+|`questions`| Array of fetched questions.|
+|`selectedQuestionsIds`| Array of IDs of selected questions.|
+|`selectedQuestions`| Array of selected question objects.|
+|`selectedAnswerType`| Currently selected answer type (default: `answerTypes[0]`).|
+
+### Functions and Methods
+
+1. `fetchQuestions`
+- **Purpose**:
+  - Updates the `questions` state with fetched data.
+  - Requires `authTokens` for authorization.
+- **Error Handling**: Logs errors to the console.
+
+2. `handleTypeChange`
+- **Purpose**:
+  - Updates the selected answer type.
+  - Updates the `selectedAnswerType` state.
+
+- **Parameters**:
+  - `selectedOption`: The selected answer type object.
+
+3. `deleteQuestion`
+- **Purpose**:
+  - Deletes a question from the backend and updates the UI.
+  - Removes the question from the `questions` state.
+- **Parameters**:
+  - `id`: The ID of the question to delete.
+- **Error Handling**: Logs errors to the console.
+
+4. `handleQuestionSelection`
+- **Purpose**
+  - Toggles the selection of a question.
+  - Updates `selectedQuestions` and `selectedQuestionsIds` states.
+  - Updates `optionsData` with the new list of selected questions.
+- **Parameters**:
+  - `selectedQuestion`: The question object to toggle.
+
+5. `removeQuestion`
+- **Purpose**
+  - Removes a question from the selected list.
+- **Parameters**:
+  - `questionId`: The ID of the question to remove.
+  - Updates `selectedQuestions`, `selectedQuestionsIds`, and `optionsData`.
+
+---
+
+## Rules Builder
+
+The `RulesBuilder.js` file is designed to manage and build complex filtering rules for a workflow stage in a job application process. It allows users to create, update, and visualize rules composed of conditions and nested groups, which can be saved to a backend service.
+
+### State Variables
+
+| Variable Name|Purpose|
+|---|---|
+|**`fields`**| Stores the list of valid rule fields fetched from the backend.|
+|`key`| Unique identifier for the field.|
+|`name`| Display name of the field.|
+|`label`| Used for rendering in dropdowns.|
+|`value`| Used for selection in dropdowns.|
+|`datatype`| Determines the type of operators applicable.|
+|||
+|**`rule`**| Stores the current rule fetched from the backend or being created.|
+| `id`| Unique identifier for the rule.|
+| `rule`| The rule logic and conditions.|
+|||
+|**`filterRules`** | Represents the current state of the rule being built.|
+|`logic`| The logical operator ("AND" or "OR") for the group.|
+|`conditions`| List of conditions or nested groups.|
+|||
+|**`numberOperators`** and **`textOperators`** (`Array`)| Define the valid operators for numeric and text fields, respectively.|
+
+### Functions and Methods
+
+1. `fetchRule(stageId)`
+- **Purpose**:
+  - Fetches an existing rule for a given stage from the backend.
+  - Updates `filterRules` and `rule` state with the fetched data.
+- **Parameters**:
+  - `stageId` (string): The ID of the stage for which the rule is fetched.
+- **Return Value**: The fetched rule object.
+- **Error Handling**: Logs errors to the console.  
+
+2. `createRule()`
+- **Purpose**: 
+  - Creates or updates a rule in the backend.
+  - Updates `rule` and `filterRules` state.
+  - Calls `addRuleToStage` to associate the rule with the stage.
+- **Return Value**: The created or updated rule object.
+- **Error Handling**: Logs errors to the console.
+
+3. `addRuleToStage(ruleId)`
+- **Purpose**: 
+  - Associates a rule with a specific stage.
+  - Updates the backend with the rule association.
+- **Parameters**:
+  - `ruleId` (string): The ID of the rule to associate.
+- **Return Value**: The updated stage data.
+- **Error Handling**: Logs errors to the console.
+
+4. `fetchValidRuleFields(serviceId)`
+- **Purpose**:
+  - Fetches valid rule fields for a given service.
+  - Updates `fields` state with the fetched data.
+- **Parameters**:
+  - `serviceId` (string): The ID of the service.
+- **Error Handling**: Logs errors to the console.
+
+5. `addCondition(parent)`
+- **Purpose**: 
+  - Adds a new condition to a group.
+  - Updates `filterRules` state.
+- **Parameters**:
+  - `parent` (Array): The array of conditions to which the new condition is added.  
+
+6. `addNestedGroup(parent)`
+- **Purpose**: 
+  - Adds a new nested group to a group.
+  - Updates `filterRules` state.
+- **Parameters**:
+  - `parent` (Array): The array of conditions to which the new group is added.
+
+7. `deleteCondition(parent, index)`
+- **Purpose**: 
+  - Deletes a condition from a group.
+  - Updates `filterRules` state.
+- **Parameters**:
+  - `parent` (Array): The array of conditions from which the condition is deleted.
+  - `index` (number): The index of the condition to delete.
+
+8. `updateCondition(parent, index, key, value)`
+- **Purpose**:
+  - Updates a specific field of a condition.
+  - Updates `filterRules` state.
+- **Parameters**:
+  - `parent` (Array): The array of conditions containing the condition to update.
+  - `index` (number): The index of the condition to update.
+  - `key` (string): The field to update (e.g., "field", "operator", "value").
+  - `value` (any): The new value for the field.
+
+9. `updateGroupLogic(group, value)`
+- **Purpose**:
+  - Updates the logical operator of a group.
+  - Updates `filterRules` state.
+- **Parameters**:
+  - `group` (Object): The group to update.
+  - `value` (string): The new logical operator ("AND" or "OR").  
+
+10. `getOperators(fieldKey)`
+- **Purpose**: 
+  - Returns the valid operators for a given field.
+- **Parameters**:
+  - `fieldKey` (string): The key of the field.
+- **Return Value**: An array of operators (e.g., `[">", "<", "="]`).
+
+---
+
+## Service Menu
+
+The `ServiceMenu.js` file renders a dropdown menu for selecting different interview-related services. The menu provides options such as "Automated Video Interview" and "Assessment," which are represented with icons and labels.
+
+- **Dependencies**
+  - `Menu`, `MenuButton`, `MenuItem`, `MenuItems`: Components from `@headlessui/react` used to create an accessible dropdown menu.
+  - `ComputerDesktopIcon`, `DocumentChartBarIcon`, `VideoCameraIcon`: Icons from `@heroicons/react/24/outline` used to visually represent menu options.
+  - `EllipsisVerticalIcon`: An icon from `@heroicons/react/24/solid` used as the menu trigger button.
+
+### Functions and Methods
+
+1. `ServiceMenu` Component
+- **Purpose**: Renders a dropdown menu with options for interview-related services.
+- **Return Value**: A JSX element representing the dropdown menu.
+
+2. **Dropdown Menu Structure**
+- The menu is triggered by an `EllipsisVerticalIcon` button.
+- Menu items are displayed in a grid-like layout with icons and labels.
+- Each menu item is wrapped in a `MenuItem` component for accessibility and interactivity.
+
+3. **Styling**
+- Tailwind CSS is used for styling, including hover effects, transitions, and positioning.
+- The menu items have a hover effect (`hover:bg-gray-50`) to indicate interactivity.
+
+4. **Accessibility**
+- The `@headlessui/react` library ensures the dropdown menu is accessible, with proper focus management and keyboard navigation.
+
+---
+
+## Tabulator Movable
+
+The `TabulatorMovable.js` file integrates the Tabulator library to create a table with movable rows. It allows users to drag and drop rows from the table into a designated drop area. 
+
+- **Dependencies**
+  - `tabulator-tables`:
+   - Used to create and manage the interactive table.
+   - Provides the `Tabulator` class for table initialization and configuration.
+   - Enables features like movable rows and event handling.
+
+### Functions and Methods
+
+1. `useEffect` Hook
+- **Purpose**: 
+  - Initializes and configures the Tabulator table when the component mounts and cleans up when the component unmounts.
+  - Initializes a Tabulator table with movable rows and predefined data.
+  - Attaches an event listener (`movableRowsElementDrop`) to handle row drops.
+  - Destroys the Tabulator instance on component unmount to prevent memory leaks.
+- **Error Handling**: No explicit error handling is implemented.
+
+2. Event Listener: `movableRowsElementDrop`
+- **Purpose**: 
+  - Handles the event when a row is dropped onto the designated drop area.
+  - Dynamically creates a list item (`<li>`) with the row's `name` property and appends it to the drop area.
+- **Parameters**:
+  - `e`: The mouseup event object.
+  - `element`: The DOM element where the row is dropped.
+  - `row`: The Tabulator row component representing the moved row.  
+- **Error Handling**: No explicit error handling is implemented.
+
+---

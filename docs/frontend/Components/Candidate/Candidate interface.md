@@ -11,27 +11,31 @@ The `CandidateInterface` component is specifically designed to handle the candid
 
 ### State Variables
 
-- **`questions`**: Array of questions for the current test.
-- **`currentQuestionIndex`**: Index of the currently displayed question.
-- **`currentTest`**: Details of the current test being taken.
-- **`timer`**: Countdown timer for the current question.
-- **`selectedChoice`**: Array of selected choices for multiple-choice questions.
-- **`textanswer`**: Text input for text-based questions.
-- **`isRecording`**: Boolean to manage audio recording state.
+|Prop Name| Description|
+|---|---|
+|`questions`| Array of questions for the current test.|
+|`currentQuestionIndex`| Index of the currently displayed question.|
+|`currentTest`| Details of the current test being taken.|
+|`timer`| Countdown timer for the current question.|
+|`selectedChoice`| Array of selected choices for multiple-choice questions.|
+|`textanswer`| Text input for text-based questions.|
+|`isRecording`| Boolean to manage audio recording state.|
 
 ### Functions
 
-- **`StartTest(time)`**: Initializes the test, sets the start time, and fetches the first question.
-- **`testStatus()`**: Checks the status of the test and fetches remaining tests.
-- **`fetchTestLog()`**: Fetches details of the test log from the backend.
-- **`fetchQuestion(id)`**: Fetches details of a specific question by ID.
-- **`saveAnswer()`**: Submits the candidate's answer to the backend and handles navigation to the next question or test.
-- **`SubmitTest()`**: Submits the completed test to the backend.
-- **`NextTest()`**: Handles navigation to the next test.
-- **`handleCorrectChange(choice, e)`**: Updates the selected choices for multiple-choice questions.
-- **`handleinputChange(id, value)`**: Updates the text input for text-based questions.
-- **`handleStartRecording()`**: Starts audio recording for audio-based questions.
-- **`handleStopRecording()`**: Stops audio recording.
+|Prop Name| Description|
+|---|---|
+|`StartTest(time)`| Initializes the test, sets the start time, and fetches the first question.|
+|`testStatus()`| Checks the status of the test and fetches remaining tests.|
+|`fetchTestLog()`| Fetches details of the test log from the backend.|
+|`fetchQuestion(id)`| Fetches details of a specific question by ID.|
+|`saveAnswer()`| Submits the candidate's answer to the backend and handles navigation to the next question or test.|
+|`SubmitTest()`| Submits the completed test to the backend.|
+|`NextTest()`| Handles navigation to the next test.|
+|`handleCorrectChange(choice, e)`| Updates the selected choices for multiple-choice questions.|
+|`handleinputChange(id, value)`| Updates the text input for text-based questions.|
+|`handleStartRecording()`| Starts audio recording for audio-based questions.|
+|`handleStopRecording()`| Stops audio recording.|
 
 ### Component Lifecycle
 
@@ -51,32 +55,14 @@ The `Modal.js` file is a React component that provides a reusable modal dialog i
 
 The `Modal` component serves as a container for displaying content in a modal dialog. It is a presentational component that does not manage its own state or behavior but instead relies on props to render its content. This makes it highly reusable and easy to integrate into different parts of the application.
 
-### Key Elements
 
-```javascript
-import React from 'react';
-
-const Modal = ({ children }) => {
-  return (
-    <div className="modal">
-      <div className="modal-overlay"></div>
-      <div className="modal-content">
-        {children}
-      </div>
-    </div>
-  );
-};
-
-export default Modal;
-```
-
-1. **`children` Prop**:
-   - The `children` prop is used to pass any content that should be displayed inside the modal. This makes the component highly flexible, as it can render anything from simple text to complex forms or other components.
-
-2. **Modal Structure**:
-   - **`modal`**: It serves as the container for the entire modal.
-   - **`modal-overlay`**: It is used to create a semi-transparent background that covers the rest of the screen, ensuring that the modal is the focus of the user's attention.
-   - **`modal-content`**: It is where the actual content (passed via the `children` prop) is rendered.
+### Props
+|Prop Name| Description|
+|---|---|
+| **`children`**| Used to pass any content that should be displayed inside the modal.|
+| `modal`| It serves as the container for the entire modal.|
+|`modal-overlay`| It is used to create a semi-transparent background that covers the rest of the screen.|
+|`modal-content`| It is where the actual content (passed via the `children` prop) is rendered.|
 
 ### Styling
 The component uses CSS classes (`modal`, `modal-overlay`, `modal-content`) for styling.
