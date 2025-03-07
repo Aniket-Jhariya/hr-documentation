@@ -758,3 +758,127 @@ The `TabulatorMovable.js` file integrates the Tabulator library to create a tabl
 - **Error Handling**: No explicit error handling is implemented.
 
 ---
+---
+## OPTIONS
+## PersonalityScreeningOptions.js
+
+The `PersonalityScreeningOptions.js` file is a React component responsible for rendering and managing the options related to personality screening in an interview process. It interacts with the parent component to update and display preferences, such as question sets and locations to exclude. 
+
+- **File Path:** `\hr-frontend\src\components\options\PersonalityScreeningOptions.js`
+- **Dependencies**:
+   - `react-select`: For dropdown functionality.
+   - `react-select/creatable`: For creating new options in dropdowns.
+   - `components` from `react-select`: For customizing dropdown components.
+
+
+## Key Structures, Interfaces, and Types
+|Prop Name| Description|
+|---|---|
+| **`locations`**| Provides a predefined list of locations that can be excluded during the screening process.|
+|`label`| Display name of the location.|
+|`value`| Internal value of the location.|
+|||
+|**`formData`**|Stores the current state of the form, including the selected question set.
+|`question_set`| ID of the selected question set.|
+---
+
+### Functions and Methods
+
+1. `useEffect` (Initialization)
+- **Purpose**: 
+  - Initializes the form data based on the `currentContainer` prop.
+  - Updates `formData` and `selectedQuestionSet` based on the `currentContainer`'s preferences.
+  - Sets `showQuestions` to `true` if `include_questions` is enabled in `currentContainer`.
+- **Parameters**: None (depends on `currentContainer` prop).
+- **Error Handling**: None explicitly handled.
+
+2. `useEffect` (Question Set Update)
+- **Purpose**: 
+  - Updates `formData` when `selectedQuestionSet` changes.
+  - Updates `formData.question_set` with the ID of `selectedQuestionSet`.
+
+3. `handleSubmit`
+- **Purpose**: Handles form submission.
+- **Parameters**:
+  - `e`: Event - The form submission event.
+- **Side Effects**:
+  - Updates `optionsData` with the current `formData`.
+
+4. `handleLocationAdd`
+- **Purpose**: Updates `formData` with the selected location to exclude.
+- **Parameters**:
+  - `selectedOption`: Object - The selected location option.
+- **Side Effects**:
+  - Updates `formData.locations_to_exclude` with the selected location.
+
+---
+
+## Resume Options
+
+The `ResumeOptions.js` file is a React component that provides a user interface for configuring resume-related preferences and settings in the CandidHR application. It allows users to set options such as maximum resume size, retries, applicants, location exclusions, social account inclusions, and other details like notice period, CTC, and currency format. 
+
+### External Dependencies
+- **React**: Used for state management (`useState`, `useEffect`) and rendering.
+- **react-select**: Provides customizable dropdown components (`Select`, `CreatableSelect`).
+- **components**: Used for customizing `react-select` components (not utilized in this file).
+
+
+## Props
+|Prop Name| Description|
+|---|---|
+| **`currencies`**|An array of objects representing currency options. Each object contains:|
+| `value`| The currency code.|
+| `label`| The display name of the currency.|
+|||
+|**`locations`**| An array of objects representing location options. Each object contains:|
+| `label`| The display name of the location.|
+| `value`| The value of the location.|
+|||
+| `formData`|A state object representing the form data. It includes the following fields:|
+|`max_retries`| Maximum number of retries allowed.|
+|`max_resume_size`| Maximum resume size in MB.|
+|`max_applicants`| Maximum number of applicants.|
+|`locations_to_exclude`| Locations to exclude.|
+|`include_github`| Whether to include GitHub profile.|
+|`include_linkedin`| Whether to include LinkedIn profile.|
+|`include_questions`| Whether to include questions.|
+|`question_set`| Selected question set ID.|
+|`include_notice_period`| Whether to include notice period.|
+|`include_current_ctc`| Whether to include current CTC.|
+|`include_expected_ctc`| Whether to include expected CTC.|
+|`include_relevant_experience`| Whether to include relevant experience.|
+|`last_increment`| Whether to include last increment details.|
+|`currency`| Selected currency format.|
+
+---
+
+## Functions and Methods
+
+1. `useEffect`
+- **(Initialization)**
+  - **Purpose**: 
+    - Initializes `formData` and `selectedCurrency` based on `currentContainer` and `questionSets`.
+    - Updates `formData` with values from `currentContainer`.
+    - Sets `selectedCurrency` based on `currentContainer`'s currency preference.
+    - Sets `selectedQuestionSet` if a question set is found in `questionSets`.
+
+- **(Question Set Update)**
+  - **Purpose**: 
+    - Updates `formData` when `selectedQuestionSet` changes.
+    - Updates `formData.question_set` with the ID of `selectedQuestionSet`.
+
+2. `handleSubmit`
+- **Purpose**: 
+  - Handles form submission.
+  - Updates `optionsData` with the current `formData`.
+  - Logs `optionsData` and `formData` to the console.
+- **Parameters**:
+  - `e`: The form submission event (React event object).  
+
+3. `handleLocationAdd`
+- **Purpose**: 
+  - Updates `formData.locations_to_exclude` when a location is selected with the selected location(s).
+- **Parameters**:
+  - `selectedOption`: The selected location(s) (array or object).
+
+---
