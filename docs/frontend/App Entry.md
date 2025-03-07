@@ -81,13 +81,11 @@ This file contains the global styles. It defines the visual presentation of the 
 
 - **File Path**: `Diacto\CandidHR\hr-frontend\src\App.css`. 
 
-1. **Global Styles**: Styles for the `.App` class, which is the root container of the application.
-2. **Logo Styles**: Styles for the `.App-logo` class, including an animation for spinning the logo.
-3. **Header Styles**: Styles for the `.App-header` class, which defines the layout and appearance of the application header.
-4. **Link Styles**: Styles for the `.App-link` class, used for hyperlinks within the application.
-5. **Animation Definition**: A keyframe animation (`App-logo-spin`) used to rotate the logo.
-
----
+- `.App`: is the root container of the application.
+- `.App-logo`: includes an animation for spinning the logo.
+- `.App-header`: defines the layout and appearance of the application header.
+- `.App-link`: used for hyperlinks within the application.
+- Keyframe animation `App-logo-spin`: used to rotate the logo.
 
 ### Classes and Styles
 
@@ -181,3 +179,5 @@ This file contains the global styles. It defines the visual presentation of the 
 - **Component-Specific Styling**: `App.css` provides global styles, complemented by component-specific stylesheets for more granular control.
 - **Responsive Design**: The use of `vmin` units and media queries ensures the application is responsive and adapts to different screen sizes.
 - **Animation**: The spinning logo animation adds a dynamic visual element to the application, enhancing user engagement.
+
+---

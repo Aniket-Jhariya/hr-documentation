@@ -7,18 +7,13 @@ The `TranscriptTimeline` component is designed to display a synchronized transcr
 - **File Path**: `\hr-frontend\src\components\applicants\TranscriptTimeline.js`
 
 ### State Variables
-- `transcriptData` (`Array<WordObject>`):
-   - Stores the parsed transcript data fetched from the API.
-   - Each `WordObject` contains:
-     - `start` (`number`): Start time of the word in the audio.
-     - `end` (`number`): End time of the word in the audio.
-     - `punctuated_word` (`string`): The word with punctuation.
-
-- `currentTime` (`number`):
-   - Tracks the current playback time of the audio.
-
-- `topics` (`Array<string>`):
-   - Intended to store extracted topics from the transcript (currently unused in the rendered UI).
+|`transcriptData` |Stores the parsed transcript data fetched from the API.|
+|**`WordObject`** ||
+|`start` | Start time of the word in the audio.|
+|`end` | End time of the word in the audio.|
+|`punctuated_word` | The word with punctuation.|
+|`currentTime` | Tracks the current playback time of the audio.|
+|`topics` | Intended to store extracted topics from the transcript (currently unused in the rendered UI).|
 
 
 ### Functions and Methods

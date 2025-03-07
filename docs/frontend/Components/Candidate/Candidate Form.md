@@ -323,14 +323,16 @@ The `Timer` component is a reusable React component designed to manage and displ
 3. **Reusability**: Be easily integrated into other components that require a countdown timer.
 
 ### Props
-
-- **`duration`**: (Number) The initial duration of the timer in seconds.
-- **`onTimeUp`**: (Function) A callback function that is triggered when the timer reaches zero.
-- **`onTick`**: (Function) A callback function that is triggered on each tick (every second) with the remaining time as an argument.
+|Prop Name| Description|
+|---|---|
+|`duration`| The initial duration of the timer in seconds.|
+|`onTimeUp`| A callback function that is triggered when the timer reaches zero.|
+|`onTick`| A callback function that is triggered on each tick (every second) with the remaining time as an argument.|
 
 ### State
-
-- **`timeLeft`**: (Number) Represents the remaining time in seconds. It is initialized with the `duration` prop.
+| Variable Name|Purpose|
+|---|---|
+|`timeLeft`|Represents the remaining time in seconds. It is initialized with the `duration` prop.|
 
 ### Effects
 
@@ -375,3 +377,5 @@ The component renders a `<span>` element that displays the remaining time in sec
 ```javascript
 return <span>{timeLeft}s</span>;
 ```
+
+---

@@ -10,9 +10,11 @@ The `ApplicantPersonalityScreening` component is a React-based UI component desi
   - React Select (`Select`, `components`)
 
 ### State Management
-- `Applicant Data`: Such as screening details, answers, and selected status.
-- `UI State`: Such as loading states, selected categories, and audio playback status.
-- `Graph Data`: For rendering radar charts that visualize the applicant's performance.
+| Variable Name|Purpose|
+|---|---|
+| `Applicant Data`| Such as screening details, answers, and selected status.|
+| `UI State`| Such as loading states, selected categories, and audio playback status.|
+| `Graph Data`| For rendering radar charts that visualize the applicant's performance.|
 
 ```javascript
 const [selectedStatus, setSelectedStatus] = useState(null);

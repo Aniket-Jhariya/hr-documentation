@@ -88,18 +88,14 @@ The component uses CSS classes (`modal`, `modal-overlay`, `modal-content`) for s
 The `Completed.js` file serves as the interface for candidates who have completed a test. It provides a summary of the completed test, including the total number of questions and the time taken. Additionally, it checks if there are any pending tests and allows the candidate to proceed to the next test if available.
 
 - **File Path**: `\hr-frontend\src\components\candidate-interface\Completed.js`
-- **Dependencies**:
-  - **React Hooks**: `useEffect`, `useState`
-  - **React Router**: `useNavigate`, `useParams`
-  - **Icons**: `CheckCircleIcon` from `@heroicons/react/24/solid`
-  - **API Constants**: `api` from `../../constants/constants`
-  - **Loader Component**: `SpinLoader` from `../../utils/loaders/SpinLoader`
 
 ### State Variables
-- **`loading`**: A boolean state to manage the loading status.
-- **`error`**: A state to store any error that occurs during API calls.
-- **`nextTest`**: A state to store information about the next test, if any.
-- **`performanceData`**: A state to store performance data such as total questions and total time taken.
+|Prop Name| Description|
+|---|---|
+|`loading`| A boolean state to manage the loading status.|
+|`error`| A state to store any error that occurs during API calls.|
+|`nextTest`| A state to store information about the next test, if any.|
+|`performanceData`| A state to store performance data such as total questions and total time taken.|
 
 ### Functions
 
@@ -194,3 +190,5 @@ const LinkeExpired = ({ error, validFrom, validTo }) => {
 - Gradient backgrounds (`bg-gradient-to-b`).
 - Shadows (`shadow-lg`).
 - Responsive design (`sm:text-5xl`, `lg:px-8`).
+
+---

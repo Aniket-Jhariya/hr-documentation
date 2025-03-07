@@ -11,16 +11,17 @@ The `Applicants` component is a React-based component designed to display and ma
 - **API Constants:** `api` is used to define the base URL for API requests.
 
 ### State Management
-
-- `userDetails`, `authTokens`, `logoutUser`, and `domain`: extracted from the `AuthContext`.
-- `error` and `successMessage`: used to handle and display error and success messages.
-- `navigate`: used for programmatic navigation.
-- `applicants` and `filteredApplicants`: store the list of applicants and the filtered list, respectively.
-- `applicantsLoading`: indicates whether the applicant data is being fetched.
-- `searchTerm`, `sortingOption`, and `filterSearchTerm`: manage the search and filter criteria.
-- `tableInstance`: stores the instance of the table for further manipulation.
-- `tableRowCount` and `totalCount`: manage the count of rows in the table.
-- `url`: stores the API endpoint for fetching applicant data.
+| Variable Name|Purpose|
+|---|---|
+| `userDetails`, `authTokens`, `logoutUser`, and `domain`| extracted from the `AuthContext`.|
+| `error` and `successMessage`| used to handle and display error and success messages.|
+| `navigate`| used for programmatic navigation.|
+| `applicants` and `filteredApplicants`| store the list of applicants and the filtered list, respectively.|
+| `applicantsLoading`| indicates whether the applicant data is being fetched.|
+| `searchTerm`, `sortingOption`, and `filterSearchTerm`| manage the search and filter criteria.|
+| `tableInstance`| stores the instance of the table for further manipulation.|
+| `tableRowCount` and `totalCount`| manage the count of rows in the table.|
+| `url`| stores the API endpoint for fetching applicant data.|
 
 ### Field Mapping
 

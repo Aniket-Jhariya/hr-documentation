@@ -10,25 +10,23 @@ The `Dashboard.js` file serves as the main analytics dashboard for the HR fronte
   - `react-select-async-paginate`: Used for the job selection dropdown.
   - `useFetchJobsDropDown` for fetching job dropdown data.
 
-
-
 ### State Variables
-| Variable Name               | Type       | Purpose                                                                 |
-|-----------------------------|------------|-------------------------------------------------------------------------|
-| `loading`                   | `boolean`  | Tracks whether data is being fetched.                                  |
-| `error`                     | `string`   | Stores error messages from API calls.                                  |
-| `applicationsReceived`      | `object`   | Stores data for applications received over time.                       |
-| `assessments`               | `object`   | Stores data for assessments completed over time.                       |
-| `videoInterviews`           | `object`   | Stores data for video interviews conducted over time.                  |
-| `applicantsPerStage`        | `object`   | Stores data for applicants distributed across stages.                  |
-| `applicantFeatureUsage`     | `object`   | Stores data for feature usage by applicants.                           |
-| `applicantsScore`           | `array`    | Stores data for applicant score distribution.                          |
-| `applicantsData`            | `array`    | Stores data for application stage overview.                            |
-| `kpiData`                   | `object`   | Stores key performance indicator (KPI) data.                           |
-| `selectedJob`               | `object`   | Stores the currently selected job from the dropdown.                   |
-| `jobSelected`               | `boolean`  | Tracks whether a job has been selected in the dropdown.                |
-| `kpiLoading`                | `boolean`  | Tracks whether KPI data is being fetched.                              |
-| `greeting`                  | `string`   | Stores a greeting message (e.g., "Good Morning").                      |
+| Variable Name               | Purpose                                                                 |
+|-----------------------------|-------------------------------------------------------------------------|
+| `loading`                   | Tracks whether data is being fetched.                                  |
+| `error`                     | Stores error messages from API calls.                                  |
+| `applicationsReceived`      | Stores data for applications received over time.                       |
+| `assessments`               | Stores data for assessments completed over time.                       |
+| `videoInterviews`           | Stores data for video interviews conducted over time.                  |
+| `applicantsPerStage`        | Stores data for applicants distributed across stages.                  |
+| `applicantFeatureUsage`     | Stores data for feature usage by applicants.                           |
+| `applicantsScore`           | Stores data for applicant score distribution.                          |
+| `applicantsData`            | Stores data for application stage overview.                            |
+| `kpiData`                   | Stores key performance indicator (KPI) data.                           |
+| `selectedJob`               | Stores the currently selected job from the dropdown.                   |
+| `jobSelected`               | Tracks whether a job has been selected in the dropdown.                |
+| `kpiLoading`                | Tracks whether KPI data is being fetched.                              |
+| `greeting`                  | Stores a greeting message (e.g., "Good Morning").                      |
 
 
 ### Functions and Methods
@@ -114,14 +112,12 @@ The `KPIOverview` component is designed to display Key Performance Indicators (K
 - **Dependencies**:
   - `react-flip-numbers`: Provides animated number flipping for KPI values.
 
-### Props and Objects
-
-1. `kpiMapping`
-- **Purpose**: 
-  - Maps KPI labels to their corresponding keys in the `kpiData` object.
-- **Fields**:
-  - `label` (string): The display name of the KPI.
-  - `key` (string): The key used to fetch the corresponding value from `kpiData`.
+### Props 
+|Prop Name| Description|
+|---|---|
+| **`kpiMapping`** | Maps KPI labels to their corresponding keys in the `kpiData` object.|
+| `label`| The display name of the KPI.|
+| `key` | The key used to fetch the corresponding value from `kpiData`.|
 
 ```js
 const kpiMapping = [
@@ -134,8 +130,6 @@ const kpiMapping = [
   { label: "Opened Jobs", key: "opened_jobs_count" },
 ];
 ```
-
----
 
 ### Functions and Methods
 
@@ -161,21 +155,18 @@ The `ApplicantInfoBarGraph` component is designed to render a line graph using t
 - `isSidebarOpen` state: handles layout changes when the sidebar is toggled.
 
 ### Props and objects
-1. `graphData` Prop
-- **Purpose**: Provides the data required to render the line graph.
-- **Parameters**:
-  - `datasets`: Array of objects containing:
-    - `name`: String (name of the dataset, e.g., "Applicants").
-    - `data`: Array of numbers (data points for the graph).
-  - `start_dates`: Array of strings (dates corresponding to the data points).
-
-2. `memoizedGraphData`
-- **Purpose**: Optimizes performance by memoizing processed graph data.
-- **Fields**:
-  - `isDataEmpty`: Boolean (indicates if the dataset is empty or contains only zeros).
-  - `formattedDates`: Array of strings (formatted dates for the x-axis).
-  - `series`: Array of objects (ECharts series configuration for each dataset).
-  - `legendData`: Array of strings (names of datasets for the legend).
+|Prop Name| Description|
+|---|---|
+| **`graphData`** | Provides the data required to render the line graph.|
+|`datasets`| Array of objects containing|
+| `name` | String (name of the dataset, e.g., "Applicants").|
+| `data`|Array of numbers (data points for the graph).|
+| `start_dates`| Array of strings (dates corresponding to the data points).|
+| **`memoizedGraphData`** | Optimizes performance by memoizing processed graph data.|
+| `isDataEmpty`|indicates if the dataset is empty or contains only zeros|
+| `formattedDates` |formatted dates for the x-axis.|
+| `series`| Array of objects (ECharts series configuration for each dataset).|
+| `legendData`| Array of strings (names of datasets for the legend).|
 
 ### Functions and Methods
 
@@ -210,20 +201,26 @@ The `ApplicantFeatureUsageGraph` component is a visualization tool designed to d
 
 - **File Path:** `\hr-frontend\src\components\dashboard\ApplicantFeatureUsageGraph.js`
 - **Dependencies**:
-  - **`echarts`**: Used for rendering interactive charts.
-  - **`@heroicons/react`**: Provides icons for the chart type toggle buttons.
+  - `echarts`: Used for rendering interactive charts.
+  - `@heroicons/react`: Provides icons for the chart type toggle buttons.
 
 ### Props
-- **`data`**: An object containing usage statistics for different features. Expected fields:
-  - `resume_screening`: Object with `total_resumes_parsed` (number).
-  - `assessment`: Object with `total_count` (number).
-  - `video_interview`: Object with `total_count` (number).
+|Prop Name| Description|
+|---|---|
+| `data`|An object containing usage statistics for different features. Expected fields:|
+| `resume_screening`| Object with `total_resumes_parsed` (number).|
+| `assessment`| Object with `total_count` (number).|
+|`video_interview`| Object with `total_count` (number).|
 
 ### State
-- **`chartType`**: A string (`"bar"` or `"pie"`) that determines the type of chart to display.
+| Variable Name|Purpose|
+|---|---|
+|`chartType`| A string (`"bar"` or `"pie"`) that determines the type of chart to display.|
 
 ### Context
-- **`SidebarContext`**: Provides the `isSidebarOpen` boolean to handle layout adjustments when the sidebar is toggled.
+| Variable Name|Purpose|
+|---|---|
+| `SidebarContext`| Provides the `isSidebarOpen` boolean to handle layout adjustments when the sidebar is toggled.|
 
 ### Functions and Methods
 
@@ -234,24 +231,22 @@ The `ApplicantFeatureUsageGraph` component is a visualization tool designed to d
   - Updates the chart configuration based on `chartType`.
   - Adds a resize event listener to handle window resizing.
   - Cleans up the chart instance and removes the resize listener on unmount.
-- **Parameters**: None (dependencies: `data`, `isSidebarOpen`, `chartType`).
-- **Return Value**: None.
 - **Error Handling**: If `data` is missing, the chart is not rendered.
 
 2. Chart Configuration
-- **`commonOptions`**: Shared configuration for both bar and pie charts.
+- `commonOptions`: Shared configuration for both bar and pie charts.
   - `tooltip`: Displays feature usage data on hover.
   - `legend`: Displays categories at the bottom of the chart.
-- **`barChartOptions`**: Configuration for the bar chart.
+- `barChartOptions`: Configuration for the bar chart.
   - `xAxis`: Displays feature categories.
   - `yAxis`: Displays applicant counts.
   - `series`: Renders bars with gradient colors and labels.
-- **`pieChartOptions`**: Configuration for the pie chart.
+- `pieChartOptions`: Configuration for the pie chart.
   - `series`: Renders a donut-shaped pie chart with gradient colors and labels.
 
 3. Event Handlers
-- **`handleResize`**: Resizes the chart when the window is resized.
-- **`setChartType`**: Updates the `chartType` state to toggle between bar and pie charts.
+- `handleResize`: Resizes the chart when the window is resized.
+- `setChartType`: Updates the `chartType` state to toggle between bar and pie charts.
 
 ---
 
@@ -265,13 +260,15 @@ The `ApplicantPerStageGraph.js` file is responsible for rendering a bar chart th
   - `SidebarContext`: A React context that provides the state of the sidebar (open/closed). This is used to trigger a re-render of the chart when the sidebar state changes.
 
 ### Props
-- **`data` (Object)**: Contains the number of applicants at each stage of the hiring process. Expected fields:
-  - `resume_screening` (Number): Number of applicants in the resume screening stage.
-  - `assessment_test` (Number): Number of applicants in the assessment stage.
-  - `video_interview` (Number): Number of applicants in the automated video interview stage.
-  - `rejected` (Number): Number of rejected applicants.
-  - `on_hold` (Number): Number of applicants on hold.
-  - `hired` (Number): Number of hired applicants.
+|Prop Name| Description|
+|---|---|
+|`data` (Object)| Contains the number of applicants at each stage of the hiring process. Expected fields:|
+| `resume_screening` | Number of applicants in the resume screening stage.|
+|`assessment_test`| Number of applicants in the assessment stage.|
+| `video_interview` | Number of applicants in the automated video interview stage.|
+| `rejected` | Number of rejected applicants.|
+| `on_hold` | Number of applicants on hold.|
+|`hired` | Number of hired applicants.|
 
 ### Functions and Methods
 
@@ -282,9 +279,9 @@ The `ApplicantPerStageGraph.js` file is responsible for rendering a bar chart th
   - Cleans up the chart instance and removes the resize event listener when the component unmounts.
 
 #### Parameters
-- **`data` (Object)**: The data object containing applicant counts for each stage.
+- `data` (Object): The data object containing applicant counts for each stage.
 #### Return Value
-- **`JSX.Element`**: A `div` element that serves as the container for the chart.
+- `JSX.Element`: A `div` element that serves as the container for the chart.
 #### Error Handling
 - If the `data` object is `null` or `undefined`, the chart rendering is skipped.
 - If all values in the `values` array are zero, the chart displays a "No Data Available" message.
@@ -298,15 +295,17 @@ The `ApplicantScoreBarGraph` component is designed to render a bar graph visuali
 
 - **File Path:** `\hr-frontend\src\components\dashboard\ApplicantScoreBarGraph.js`
 - **Dependencies**
-  - **`echarts`**: Used for rendering the bar graph.
-  - **`SidebarContext`**: Provides the `isSidebarOpen` state to handle layout adjustments when the sidebar is toggled.
+  - `echarts`: Used for rendering the bar graph.
+  - `SidebarContext`: Provides the `isSidebarOpen` state to handle layout adjustments when the sidebar is toggled.
 
 
 ### Props
-- **`graphData`**: An array of objects representing the data to be visualized in the bar graph.
-  - **Fields**:
-    - `score`: A number or string representing the applicant score.
-    - `count`: A number representing the count of applicants with the corresponding score.
+|Prop Name| Description|
+|---|---|
+|`graphData`| An array of objects representing the data to be visualized in the bar graph.|
+|`score`| A number or string representing the applicant score.|
+| `count`| A number representing the count of applicants with the corresponding score.|
+   
 
 ### Functions and Methods
 
@@ -316,7 +315,7 @@ The `ApplicantScoreBarGraph` component is designed to render a bar graph visuali
 - Listens for window resize events to dynamically resize the chart.
 - Cleans up the chart instance and removes the resize event listener on component unmount.
 #### Parameters
-- **`graphData`**: An array of objects containing `score` and `count` fields. This data is used to populate the bar graph.
+- `graphData`: An array of objects containing `score` and `count` fields. This data is used to populate the bar graph.
 #### Return Value
 - Returns a `div` element that serves as the container for the ECharts bar graph.
 #### Error Handling
@@ -330,22 +329,23 @@ The `ApplicationStageOverview` component is designed to visualize the stages of 
 
 - **File Path:** `\hr-frontend\src\components\dashboard\ApplicationStageOverview.js`
 - **Dependencies**
-  - **`echarts`**: A charting library used to render the stacked bar chart.
-  - **`SidebarContext`**: Provides the `isSidebarOpen` state to adjust the chart layout when the sidebar is toggled.
+  - `echarts`: A charting library used to render the stacked bar chart.
+  - `SidebarContext`: Provides the `isSidebarOpen` state to adjust the chart layout when the sidebar is toggled.
 
 
 ### Props
-- **`applicantsData`**: An object containing applicant data.
-  - **Fields**:
-    - `results`: An array of job objects, each containing:
-      - `job_name`: The name of the job.
-      - `stages`: An object with counts of applicants in each stage:
-        - `resume_screening`: Number of applicants in the resume screening stage.
-        - `video_interview`: Number of applicants in the video interview stage.
-        - `assessment_test`: Number of applicants in the assessment test stage.
-        - `hired`: Number of applicants hired.
-        - `reject`: Number of applicants rejected.
-        - `on_hold`: Number of applicants on hold.
+| Prop Name           | Description                                                                 |
+|---------------------|-----------------------------------------------------------------------------|
+| `results`              |An array of job objects, each containing:                                     |
+|`job_name`               |The name of the job.                                     |
+|`stages`               |An object with counts of applicants in each stage:                                     |
+|`resume_screening`               | Number of applicants in the resume screening stage.                                     |
+|`video_interview`               |Number of applicants in the video interview stage.                                     |
+|`assessment_test`               | Number of applicants in the assessment test stage.                                     |
+|`hired`               | Number of applicants hired.                                     |
+|`reject`               | Number of applicants rejected.                                     |
+|`on_hold`               | Number of applicants on hold.                                     |
+   
 
 ### Functions and Methods
 
@@ -388,20 +388,14 @@ The `ApplicationStageOverviewTable` component is designed to display a tabular o
 
 1. `applicantsData` Prop
 - **Purpose**: Contains the data to be displayed in the table. Each object represents a job and its associated applicant counts at various stages.
-- **Fields**:
-  - `job_name`: `string` - Name of the job.
-  - `total_applicants`: `number` - Total number of applicants.
-  - `stages`: `Object` - Contains counts for each stage:
-    - `resume_screening`: `number`
-    - `assessment_test`: `number`
-    - `video_interview`: `number`
-    - `hired`: `number`
-    - `reject`: `number`
-    - `on_hold`: `number`
-  - `close_date`: `string` - Date when the job closes.
-  - `is_closed`: `boolean` - Indicates whether the job is closed.
 
----
+| Prop Name| Description|
+|---------------------|-----------------------------------------------------------------------------|
+|`job_name`| Name of the job.|
+|`total_applicants`|Total number of applicants.                                     |
+|`stages`| Contains counts for each stage: `resume_screening`, `assessment_test`, `video_interview`,  `hired`, `reject` and `on_hold`|
+|`close_date`:| Date when the job closes.|
+|`is_closed`| `boolean` - Indicates whether the job is closed.|
 
 ### Functions and Methods
 

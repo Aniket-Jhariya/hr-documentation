@@ -7,35 +7,39 @@ The `ApplicantProfile` component is a React-based component designed to display 
 
 - **File Path**: `\hr-frontend\src\components\applicants\ApplicantProfile.js`
 - **Dependencies**:
-    - **React**: The core library for building the component.
-    - **react-router-dom**: For navigation and routing.
-    - **react-pdf**: For handling PDF documents (e.g., resumes).
-    - **react-select**: For dropdown menus (e.g., job selection).
-    - **@heroicons/react**: For icons used in the UI.
+    - `react-pdf`: For handling PDF documents (e.g., resumes).
+    - `react-select`: For dropdown menus (e.g., job selection).
+    - `@heroicons/react`: For icons used in the UI.
 
 ### State Management
-- **`tabs`**: Manages the tabs available for navigation.
-- **`currentStage`**: Tracks the current stage of the hiring process being viewed.
-- **`scores`**: Stores the applicant's resume scores.
-- **`applicant`**: Holds the applicant's data.
-- **`selectedJob`**: Tracks the currently selected job from the list of jobs the applicant has applied to.
-- **`stages`**: Manages the stages of the hiring process for the selected job.
+| Variable Name|Purpose|
+|---|---|
+| `tabs`| Manages the tabs available for navigation.|
+| `currentStage`| Tracks the current stage of the hiring process being viewed.|
+| `scores`| Stores the applicant's resume scores.|
+| `applicant`| Holds the applicant's data.|
+| `selectedJob`| Tracks the currently selected job from the list of jobs the applicant has applied to.|
+| `stages`| Manages the stages of the hiring process for the selected job.|
 
 ### Functions
-- **`fetchApplicants`**: Fetches applicant data from the API.
-- **`fetchApplicantStagesByJob`**: Fetches the stages of the hiring process for the selected job.
-- **`handleTabClick`**: Handles navigation between different stages.
-- **`handleJobSelect`**: Updates the selected job and navigates to the corresponding stage.
-- **`getErrorDetails`**: Generates error messages and icons based on the error status code.
-- **`getScoreSummary`**: Generates a summary and class for a given score.
-- **`getOverallSummary`**: Generates an overall summary for the applicant's resume score.
+| Function Name|Purpose|
+|---|---|
+| `fetchApplicants`| Fetches applicant data from the API.|
+| `fetchApplicantStagesByJob`| Fetches the stages of the hiring process for the selected job.|
+| `handleTabClick`| Handles navigation between different stages.|
+| `handleJobSelect`| Updates the selected job and navigates to the corresponding stage.|
+| `getErrorDetails`| Generates error messages and icons based on the error status code.|
+| `getScoreSummary`| Generates a summary and class for a given score.|
+| `getOverallSummary`| Generates an overall summary for the applicant's resume score.|
 
 ### Sub-Components
-- **`ApplicantOverview`**: Displays an overview of the applicant's profile.
-- **`ApplicantResumeCopy`**: Displays the applicant's resume and related details.
-- **`ApplicantPersonalityScreening`**: Displays the results of the applicant's personality screening.
-- **`ApplicantTracking`**: Displays the applicant's assessment results.
-- **`ProfileComments`**: Displays comments related to the applicant.
+| Sub-component Name|Purpose|
+|---|---|
+| `ApplicantOverview`| Displays an overview of the applicant's profile.|
+| `ApplicantResumeCopy`| Displays the applicant's resume and related details.|
+| `ApplicantPersonalityScreening`| Displays the results of the applicant's personality screening.|
+| `ApplicantTracking`| Displays the applicant's assessment results.|
+| `ProfileComments`| Displays comments related to the applicant.|
 
 
 ### Error Handling
@@ -93,22 +97,23 @@ The `ProfileComments` component is responsible for fetching, organizing, and dis
   - `AvatarContext`: Provides avatars and a function to fetch avatars for users.  
 
 ### Contexts
-- `AuthContext`
-   - Fields:  
-     - `authTokens`: Authentication tokens for API requests.  
-     - `userDetails`: Details of the logged-in user.  
-     - `teamMembersAvatars`: List of team members' avatars.  
-     - `setTeamMembersAvatars`: Function to update the list of team members' avatars.  
-     - `domain`: Domain information for API requests.  
-
-- `AvatarContext`  
-   - Fields:  
-     - `avatars`: A collection of user avatars.  
-     - `fetchAvatar`: Function to fetch an avatar for a specific user.  
+| Context Name|Purpose|
+|---|---|
+| **`AuthContext`**||
+| `authTokens`| Authentication tokens for API requests.  |
+| `userDetails`| Details of the logged-in user.  |
+| `teamMembersAvatars`| List of team members' avatars.  |
+| `setTeamMembersAvatars`| Function to update the list of team members' avatars.  |
+| `domain`| Domain information for API requests.  |
+| **`AvatarContext`**|  |
+| `avatars`| A collection of user avatars.  |
+| `fetchAvatar`| Function to fetch an avatar for a specific user.  |
 
 ### State Variables
-- `comments`: Stores grouped comments by user ID. Each user's comments are further grouped by the interview step name.  
-- `loadingComments`: Tracks the loading state while fetching comments.  
+| Variable Name|Purpose|
+|---|---|
+|`comments`| Stores grouped comments by user ID. Each user's comments are further grouped by the interview step name.  |
+|`loadingComments`| Tracks the loading state while fetching comments.  |
 
 ### Functions and Methods
 1. `getComments()`

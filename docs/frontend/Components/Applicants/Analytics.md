@@ -28,11 +28,13 @@ const [mostRecentApplicant, setMostRecentApplicant] = useState(null);
 const [topSkill, setTopSkill] = useState(null);
 const { authTokens } = useContext(AuthContext);
 ```
-- `totalApplicants`: Stores the total number of applicants.
-- `topLocation`: Stores the top location of applicants and the count of applicants from that location.
-- `mostRecentApplicant`: Stores the timestamp of the most recent applicant.
-- `topSkill`: Stores the top skills among applicants.
-- `authTokens`: Retrieves authentication tokens from `AuthContext`.
+| Variable Name|Purpose|
+|---|---|
+| `totalApplicants`| Stores the total number of applicants.|
+| `topLocation`| Stores the top location of applicants and the count of applicants from that location.|
+| `mostRecentApplicant`|: Stores the timestamp of the most recent applicant.|
+| `topSkill`| Stores the top skills among applicants.|
+| `authTokens`| Retrieves authentication tokens from `AuthContext`.|
 
 
 ### Data Fetching with `useEffect`

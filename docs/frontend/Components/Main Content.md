@@ -8,15 +8,12 @@ The `MainContent.js` file is a React component that serves as the main content a
 
 - **File Path:** `Diacto\CandidHR\hr-frontend\src\components\MainContent.js`
 
-- `isSidebarOpen`: A boolean value indicating whether the sidebar is open.
-- `setSidebarOpen`: A function to toggle the sidebar's open/close state.
-
-
 ### Props
 
-- **`isSidebarOpen`**: This prop is a boolean that determines whether the sidebar is currently open or closed. It is used to conditionally set the width of the `MainContent` component.
-  
-- **`setSidebarOpen`**: This prop is a function that allows the `MainContent` component to toggle the sidebar's state. Although it is passed as a prop, it is not directly used within the `MainContent` component in the provided code.
+|Prop Name| Description|
+|---|---|
+| `isSidebarOpen` | This prop is a boolean that determines whether the sidebar is currently open or closed. It is used to conditionally set the width of the `MainContent` component.|
+|`setSidebarOpen` | This prop is a function that allows the `MainContent` component to toggle the sidebar's state. Although it is passed as a prop, it is not directly used within the `MainContent` component in the provided code.|
 
 ### Styling
 

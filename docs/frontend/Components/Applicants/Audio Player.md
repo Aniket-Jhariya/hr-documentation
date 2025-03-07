@@ -10,12 +10,16 @@ The `AudioPlayer` component is a reusable React component designed to play and c
 
 
 ### Props
-- `audioUrl` (`string`): The URL of the audio file to be played. This is a required prop.
+|Prop Name| Description|
+|---|---|
+| `audioUrl`| The URL of the audio file to be played. This is a required prop.|
 
 ### State Variables
-- `isPlaying` (`boolean`): Tracks whether the audio is currently playing.
-- `currentTime` (`number`): Tracks the current playback time in seconds.
-- `duration` (`number`): Tracks the total duration of the audio in seconds.
+| Variable Name|Purpose|
+|---|---|
+| `isPlaying` | Tracks whether the audio is currently playing.|
+| `currentTime` | Tracks the current playback time in seconds.|
+| `duration` | Tracks the total duration of the audio in seconds.|
 
 ### Functions and Methods
 

@@ -17,25 +17,31 @@ The `ApplicantOverview` component is a React component designed to display detai
 - **Comments Integration**: Integrates with a comments drawer for adding and viewing comments related to the applicant.
 
 ### Props
-- `jobId`: The ID of the job the applicant has applied for.
-- `applicant`: An object containing the applicant's personal information.
-- `resumeDetail`: An object containing details about the applicant's resume.
+|Prop Name| Description|
+|---|---|
+| `jobId`| The ID of the job the applicant has applied for.|
+| `applicant`| An object containing the applicant's personal information.|
+| `resumeDetail`| An object containing details about the applicant's resume.|
 
 ### State Management
-- `resumeUrl`: Stores the URL of the resume for viewing.
-- `showModal`: Controls the visibility of the resume modal.
-- `isMasked`: Toggles the visibility of sensitive information (e.g., salary).
-- `comments`: Stores comments related to the applicant.
-- `numPages`: Stores the number of pages in the PDF resume.
-- `pageNumber`: Tracks the current page number of the PDF resume.
-- `loadingComments`: Indicates whether comments are being loaded.
-- `menuOpen`: Controls the visibility of a dropdown menu.
-- `currentComment`: Stores the current comment being typed.
-- `open`: Controls the visibility of the comments drawer.
+| Variable Name|Purpose|
+|---|---|
+| `resumeUrl`| Stores the URL of the resume for viewing.|
+| `showModal`| Controls the visibility of the resume modal.|
+| `isMasked`| Toggles the visibility of sensitive information (e.g., salary).|
+| `comments`| Stores comments related to the applicant.|
+| `numPages`| Stores the number of pages in the PDF resume.|
+| `pageNumber`| Tracks the current page number of the PDF resume.|
+| `loadingComments`| Indicates whether comments are being loaded.|
+| `menuOpen`| Controls the visibility of a dropdown menu.|
+| `currentComment`| Stores the current comment being typed.|
+| `open`| Controls the visibility of the comments drawer.|
 
 ### Contexts
-- `AuthContext`: Provides authentication tokens and user details.
-- `AvatarContext`: Manages avatars for team members.
+| Variable Name|Purpose|
+|---|---|
+| `AuthContext`| Provides authentication tokens and user details.|
+| `AvatarContext`| Manages avatars for team members.|
 
 ### Functions
 - **handleMenuToggle**: Toggles the visibility of a dropdown menu.

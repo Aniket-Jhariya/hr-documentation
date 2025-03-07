@@ -12,16 +12,16 @@ The `CommentsQuickList.js` file renders a popover interface for displaying and m
    - `@heroicons/react/20/solid`: Supplies SVG icons (`ChevronDownIcon`, `TrashIcon`) for UI elements.
 
 ### Props
-- `setComments` (function): A state setter function to update the comments list after deletion.
-- `comment` (object): Contains the comment data, including the user's avatar, name, and nested comments.
-- `candidateName` (string): Name of the candidate (unused in the current implementation).
-- `img` (string): Image URL for the candidate (unused in the current implementation). 
-and Objects
-
+|Prop Name| Description|
+|---|---|
+| `setComments`| A state setter function to update the comments list after deletion.|
+| `comment`| Contains the comment data, including the user's avatar, name, and nested comments.|
+| `candidateName`| Name of the candidate (unused in the current implementation).|
+| `img`| Image URL for the candidate (unused in the current implementation). |
 
 ### State Variables
-- `deleting` (boolean): Tracks whether a comment deletion is in progress.
-- `error` (object): Stores any errors encountered during the deletion process.
+| `deleting` | Tracks whether a comment deletion is in progress.|
+| `error` | Stores any errors encountered during the deletion process.|
 
 
 1. `feedback` 
@@ -42,9 +42,6 @@ and Objects
 - **Purpose**: 
   - Closes the popover by programmatically clicking the `PopoverButton`.
   - Triggers a click event on the `PopoverButton` reference.
-- **Parameters**: None.
-- **Return Value**: None.
-
 
 #### `deleteComment` Function
 - **Purpose**: 
@@ -55,7 +52,6 @@ and Objects
 - **Parameters**:
   - `stepName` (string): The name of the interview step associated with the comment.
   - `id` (number): The unique identifier of the comment to delete.
-- **Return Value**: None.
 - **Error Handling**: Catches and sets errors in the `error` state if the API request fails.
 
 ---
@@ -69,27 +65,28 @@ The `CommentsDetailedList.js` file is responsible for rendering a detailed list 
   - `heroicons/react`: Used to render the `TrashIcon` for the delete button.
 
 ### Props
-The component accepts the following props:
-- `setComments`: A function to update the comments state in the parent component.
-- `comment`: An object containing details about the commenter and their comments.
-  - Fields:
-    - `avatar`: URL of the commenter's avatar.
-    - `name`: Name of the commenter.
-    - `role`: Role of the commenter.
-    - `id`: Unique identifier of the commenter.
-    - `comments`: An object where keys represent step names and values are arrays of comments for that step.
-      - Each comment object contains:
-        - `step_name`: The name of the hiring step.
-        - `id`: Unique identifier of the comment.
-        - `updated_at`: Timestamp of when the comment was last updated.
-        - `feedback`: The actual comment text.
-- `candidateName`: Name of the candidate (unused in the current implementation).
-- `img`: Image URL of the candidate (unused in the current implementation).
+|Prop Name| Description|
+|---|---|
+| `setComments`| A function to update the comments state in the parent component.|
+| **`comment`**| An object containing details about the commenter and their comments. Expected Fields:|
+| `avatar`| URL of the commenter's avatar.|
+| `name`| Name of the commenter.|
+| `role`| Role of the commenter.|
+| `id`| Unique identifier of the commenter.|
+|||
+| **`comments`**| An object where keys represent step names and values are arrays of comments for that step. Each comment object contains:|
+| `step_name`| The name of the hiring step.|
+| `id`| Unique identifier of the comment.|
+| `updated_at`| Timestamp of when the comment was last updated.|
+| `feedback`| The actual comment text.|
+| `candidateName`| Name of the candidate (unused in the current implementation).|
+| `img`| Image URL of the candidate (unused in the current implementation).|
 
 ### Context
-The component uses the `AuthContext` to access:
-- `authTokens`: Authentication tokens for API requests.
-- `userDetails`: Details of the currently logged-in user, including their `id`.
+| Variable Name|Purpose|
+|---|---|
+|`authTokens`| Authentication tokens for API requests.|
+|`userDetails`| Details of the currently logged-in user, including their `id`.|
 
 ### Functions and Methods
 
@@ -104,10 +101,10 @@ The component uses the `AuthContext` to access:
 - **Return Value**: None (currently unimplemented).
 - **Error Handling**: None (currently unimplemented).
 
-2. Rendering Comments
+2. *Rendering Comments*
 The component maps through the `comments` object to render comments grouped by step names:
 
-3. Conditional Delete Button
+3. *Conditional Delete Button*
 The delete button is only rendered if the comment belongs to the current user:
 
 ---

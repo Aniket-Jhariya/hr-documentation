@@ -39,20 +39,6 @@ The `aiSummary` prop is expected to have the following structure:
 #### Purpose
 - Uses `useState` to manage the `isMasked` state (though it is not utilized in the provided code snippet).
 - Interacts with external functions (`handleDownload`, `setShowModal`, `openOutlook`) passed as props.
-
-#### Parameters
-- **Props**:
-  - `applicant`: Object containing applicant details.
-  - `resumeDetail`: Object containing resume details.
-  - `handleDownload`: Function to handle resume downloads.
-  - `setShowModal`: Function to open a modal for viewing the resume.
-  - `openOutlook`: Function to open the applicant's email in Outlook.
-  - `aiSummary`: Object containing AI-generated insights.
-
 #### Return Value
 - Returns a JSX structure that renders the applicant's personal information, social profiles, contact details, and attachments.
-
-#### Error Handling
-- No explicit error handling is present. Missing data is handled gracefully by conditional rendering (e.g., `aiSummary ? ... : ...`).
-
 ---
