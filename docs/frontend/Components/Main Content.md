@@ -6,7 +6,7 @@ sidebar_position: 1
 
 The `MainContent.js` file is a React component that serves as the main content area of the application. It is responsible for rendering the primary content of the application, including the navigation bar (`Navbar`) and a heading (`Heading`).
 
-- **File Path:** `Diacto\CandidHR\hr-frontend\src\components\MainContent.js`
+- **File Path:** `\hr-frontend\src\components\MainContent.js`
 
 ### Props
 

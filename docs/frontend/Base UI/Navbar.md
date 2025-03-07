@@ -56,7 +56,7 @@ function classNames(...classes) {
 
 ## VideoNavbar 
 
-- **Path:** `Diacto\CandidHR\hr-frontend\src\Base UI\navbar\VideoNavbar.js`
+- **Path:** `\hr-frontend\src\Base UI\navbar\VideoNavbar.js`
 
 ### Dependencies
 

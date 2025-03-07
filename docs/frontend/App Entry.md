@@ -79,7 +79,7 @@ The `App` function is the main component that returns the JSX structure of the a
 ## Styling
 This file contains the global styles. It defines the visual presentation of the application, including layout, colors, animations, and responsive behavior.
 
-- **File Path**: `Diacto\CandidHR\hr-frontend\src\App.css`. 
+- **File Path**: `\hr-frontend\src\App.css`. 
 
 - `.App`: is the root container of the application.
 - `.App-logo`: includes an animation for spinning the logo.

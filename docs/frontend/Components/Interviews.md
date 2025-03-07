@@ -372,6 +372,7 @@ The `EditableWorkflow` component is designed to manage and display an editable w
 
 The `InterviewWorkflow.js` file serves as the core interface for managing and customizing interview workflows within the CandidHR application. It allows users to create, edit, and save interview steps (rounds), configure preferences, and manage question sets for different types of screenings.
 
+- **File Path:** `\hr-frontend\src\components\interviews\InterviewWorkflow.js`
 - **Dependencies**:
   - `@dnd-kit/core`: Provides drag-and-drop functionality.
   - `react-router-dom`: Handles navigation and URL parameters.
@@ -487,7 +488,9 @@ The `InterviewWorkflow.js` file serves as the core interface for managing and cu
 
 ## MiniCard 
 
-The `MiniCard` component is designed to display a compact card with an icon, label, and an optional service menu. It is primarily used to represent a selectable or interactive item in a list or grid layout. 
+The `MiniCard` component is designed to display a compact card with an icon, label, and an optional service menu. It is primarily used to represent a selectable or interactive item in a list or grid layout.
+
+- **File Path:** `\hr-frontend\src\components\interviews\MiniCard.js`
 
 ### Props
 |Prop Name| Description|
@@ -514,6 +517,7 @@ The `MiniCard` component is designed to display a compact card with an icon, lab
 
 The `Questions.js` file is responsible for managing and displaying questions within a questionnaire or interview setup. It allows users to select, add, and remove questions, configure question types, and manage question sets.
 
+- **File Path:** `\hr-frontend\src\components\interviews\Questions.js`
 - **Dependencies**:
   - `@heroicons/react/20/solid`: Provides icons for UI elements.
   - `react-select`: Used for dropdowns (e.g., selecting question sets).
@@ -583,6 +587,8 @@ const answerTypes = [
 ## Rules Builder
 
 The `RulesBuilder.js` file is designed to manage and build complex filtering rules for a workflow stage in a job application process. It allows users to create, update, and visualize rules composed of conditions and nested groups, which can be saved to a backend service.
+
+- **File Path:** `\hr-frontend\src\components\interviews\RulesBuilder.js`
 
 ### State Variables
 
@@ -721,7 +727,9 @@ The `ServiceMenu.js` file renders a dropdown menu for selecting different interv
 
 ## Tabulator Movable
 
-The `TabulatorMovable.js` file integrates the Tabulator library to create a table with movable rows. It allows users to drag and drop rows from the table into a designated drop area. 
+The `TabulatorMovable.js` file integrates the Tabulator library to create a table with movable rows. It allows users to drag and drop rows from the table into a designated drop area.
+
+- **File Path:** `\hr-frontend\src\components\interviews\TabulatorMovable.js`
 
 - **Dependencies**
   - `tabulator-tables`:
