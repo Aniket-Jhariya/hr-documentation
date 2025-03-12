@@ -5,6 +5,7 @@ sidebar_position: 1
 
 The `AudioVisualizer.js` file is responsible for rendering an audio visualizer in the personality screening module of the CandidHR project. It leverages the `react-audio-visualize` library to display a real-time audio waveform visualization.
 
+- **File Path:** `\hr-frontend\src\components\personality-screening\AudioVisualizer.js`
 - **Dependencies**:
   - `react-audio-visualize`:It provides the `AudioVisualizer` component, which accepts configuration.
 
@@ -25,6 +26,8 @@ The `AudioVisualizer.js` file is responsible for rendering an audio visualizer i
 ## Countdown Timer
 
 The `CountdownTimer` component is designed to display and manage a countdown timer. It is primarily used in scenarios where users are required to complete tasks within a specific time limit, such as answering questions in a quiz or assessment. The timer dynamically updates its display and triggers a callback when the time runs out.
+
+- **File Path:** `\hr-frontend\src\components\personality-screening\CountdownTimer.js`
 
 ### Props
 
@@ -56,6 +59,7 @@ The `CountdownTimer` component is designed to display and manage a countdown tim
 
 The `ScreeningTour.js` file serves as the main interface for a personality screening process in a candidate evaluation system. It handles the recording of video and audio responses to a series of predefined questions, manages the flow of the screening, and provides a user-friendly interface for candidates to complete the screening process. The component integrates with various utilities and APIs to facilitate the recording, submission, and navigation of the screening process.
 
+- **File Path:** `\hr-frontend\src\components\personality-screening\ScreeningTour.js`
 - **Dependencies**:
   - `navigator.mediaDevices.getUserMedia` and `MediaRecorder`: for audio/video recording.
 
@@ -141,8 +145,9 @@ The `ScreeningTour.js` file serves as the main interface for a personality scree
 
 ## SpeechToText
 
-The `SpeechToText` component is designed to capture and display speech input from the user. It leverages the `react-speech-recognition` library to provide real-time speech-to-text functionality. The component is primarily used for personality screening or any scenario where spoken input needs to be converted into text for further processing.
+The `SpeechToText` component is designed to capture and display speech input from the user to provide real-time speech-to-text functionality. The component is primarily used for personality screening or any scenario where spoken input needs to be converted into text for further processing.
 
+- **File Path:** `\hr-frontend\src\components\personality-screening\SpeechToText.js`
 - **Dependencies**
   - `react-speech-recognition`:A library for speech recognition functionality.
 
@@ -176,6 +181,8 @@ The `SpeechToText` component is designed to capture and display speech input fro
 ## Start Timer
 
 The `StartTimer.js` file is responsible for implementing a countdown timer. It is used in the personality screening feature of the application to display a visual countdown before the screening begins.
+
+- **File Path:** `\hr-frontend\src\components\personality-screening\StartTimer.js`
 
 ### Props
 |Prop Name| Description|
@@ -213,6 +220,8 @@ The `StartTimer.js` file is responsible for implementing a countdown timer. It i
 ## Text-To-Speech
 
 The `TextToSpeech.js` file is designed to convert text into speech using the Web Speech API. It is part of a personality screening feature in the HR frontend project. The component dynamically fetches available voices, allows customization of speech parameters (pitch, rate, volume), and provides controls for pausing and resuming speech. 
+
+- **File Path:** `\hr-frontend\src\components\personality-screening\TextToSpeech.js`
 
 ### State Variables
 | Variable Name|Purpose|
@@ -260,15 +269,15 @@ The `TextToSpeech.js` file is designed to convert text into speech using the Web
 
 ---
 
-# Technical Documentation: `Tour.js`
+## Tour
 
-## Summary
 The `Tour.js` file is designed to guide candidates through the initial steps of a personality screening process. It handles the following:
 - Testing the candidate's webcam and microphone.
 - Fetching and displaying screening details (e.g., status, expiration, pending questions).
 - Navigating candidates to the appropriate screens based on the screening status (e.g., expired, started, completed).
 - Marking the screening link as opened and updating its status.
 
+- **File Path:** `\hr-frontend\src\components\personality-screening\Tour.js`
 - **Dependencies**:
   - `@heroicons/react`: Provides icons for UI elements.
   - `AuthContext`: Provides authentication context (currently unused in this file).
@@ -351,11 +360,11 @@ The `Tour.js` file is designed to guide candidates through the initial steps of 
 
 ---
 
-# Technical Documentation: `VideoComponent.js`
+## Video Component
 
-## Summary
 The `VideoComponent.js` file is a React component responsible for managing a video-based personality screening interview. It handles the recording of video and audio responses, navigation through questions, and submission of answers. The component integrates with external APIs to fetch candidate and screening details, and it provides a user interface for the interview process, including a video feed, question prompts, and a chat-like interface for reviewing answered questions.
 
+- **File Path:** `\hr-frontend\src\components\personality-screening\VideoComponent.js`
 - **Dependencies**
   - **Lottie**: Used for animations.
   - **React Toastify**: Displays toast notifications.
@@ -452,9 +461,9 @@ The `VideoComponent.js` file is a React component responsible for managing a vid
 
 # VoiceAnimation Component Documentation
 
-## Summary
 The `VoiceAnimation.js` file renders a visual animation representing voice activity. It is used in the personality screening module to provide a dynamic visual indicator during voice-based interactions or recordings.
 
+- **File Path:** `\hr-frontend\src\components\personality-screening\VoiceAnimation.js`
 
 ## Functions and Methods
 

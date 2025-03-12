@@ -6,6 +6,7 @@ sidebar_position: 3
 
 The `VideoRecorder.js` file is a React component designed to handle video and audio recording functionality within a React project. It utilizes the `react-webcam` library to capture media streams and the `MediaRecorder` API to record and upload video chunks to a server. The component manages recording state, chunk uploads, and finalizes the upload process once all chunks are sent.
 
+- **File Path:** `\hr-frontend\src\components\personality-screening\react-webcam\VideoRecorder.js`
 - **Dependencies**:
   - `react-webcam`: Used to capture video and audio streams from the user's device.
   - `MediaRecorder API`: Handles recording and chunking of media streams.
@@ -60,11 +61,11 @@ The `VideoRecorder.js` file is a React component designed to handle video and au
 
 ---
 
-# WebcamRec Component Documentation
+## WebcamRec Component Documentation
 
-## Summary
 The `WebcamRec` component is designed to handle video and audio recording using the webcam and microphone. It integrates with the MediaRecorder API to capture media streams, split them into chunks, and upload these chunks to a server.
 
+- **File Path:** `\hr-frontend\src\components\personality-screening\react-webcam\WebcamRec.js`
 - **Dependencies**
   - `uuid`: Used to generate unique identifiers for video sessions.
   - `react-webcam`: Commented out but intended for webcam integration.

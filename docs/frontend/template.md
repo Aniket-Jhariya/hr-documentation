@@ -1,3 +1,7 @@
+---
+sidebar_position: 100
+---
+
 |Prop Name| Description|
 |---|---|
 
@@ -7,7 +11,8 @@
 
 - **File Path:** `\hr-frontend\src\components\`
 
----
+
+
 
 
 

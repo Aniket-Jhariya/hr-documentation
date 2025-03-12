@@ -6,6 +6,7 @@ sidebar_position: 2
 
 The `List.js` file is responsible for managing and displaying a list of assigned automated video interviews within the HR frontend application. It allows administrators to assign video interviews to candidates, manage questionnaires, and configure interview settings.
 
+- **File Path:** `\hr-frontend\src\components\personality-screening\admin\List.js`
 - **Dependencies**:
   - `react-toastify`: Displays toast notifications.
   - `react-select-async-paginate`: Handles paginated dropdowns.
