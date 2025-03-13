@@ -6,6 +6,7 @@ sidebar_position: 14
 
 The `Tests.js` file serves as the main interface for managing assessments (tests) within the CandidHR application. It allows users to create, edit, publish, share, and delete tests. The component integrates with various APIs to fetch and manipulate test data, and it provides a tabbed interface for navigating between different types of assessments. 
 
+- **File Path:** `\hr-frontend\src\components\tests\Tests.js`
 - **Dependencies**
     - `SpinLoader`: Loading spinner component.
     - `ToastContainer`: Displays toast notifications.
@@ -157,6 +158,7 @@ The `Tests.js` file serves as the main interface for managing assessments (tests
 
 The `AssignedAssessments.js` file renders a table displaying assessments assigned to candidates within an HR management system. It integrates with the `Table` utility component to fetch and display data, and it allows users to navigate to candidate profiles or filter and sort the table data.
 
+- **File Path:** `\hr-frontend\src\components\tests\AssignedAssessments.js`
 - **Dependencies**:
     - `Table`: A utility component for rendering and managing the table.
     - `AssignModal`: A modal component for assigning assessments.
@@ -223,6 +225,7 @@ const fieldMapping = {
 
 The `AssignModal.js` file provides a multi-step modal interface for assigning assessments to candidates. It integrates with various custom hooks and APIs to fetch data and handle the assignment process. The modal is designed to guide users through three steps: selecting candidates, choosing assessments, and configuring assessment validity.
 
+- **File Path:** `\hr-frontend\src\components\tests\AssignModal.js`
 - **Dependencies**:
   - `react-select-async-paginate`: For async dropdowns with pagination.
   - `@heroicons/react`: For icons (e.g., close button).
@@ -277,6 +280,7 @@ The `AssignModal.js` file provides a multi-step modal interface for assigning as
 
 The `EditTest.js` file is a React component responsible for managing the editing and creation of test questions within a test. It provides a user interface for adding, updating, and deleting questions, as well as uploading questions via an Excel file. The component interacts with an API to fetch and update test details, questions, and difficulties. It also handles form validation and state management for question editing.
 
+- **File Path:** `\hr-frontend\src\components\tests\EditTest.js`
 - **Dependencies**
     - `React-Quill`: Provides a rich text editor for question content.
     - `React-Select`: Provides dropdown components for selecting answer formats and difficulties.
@@ -450,6 +454,7 @@ The `EditTest.js` file is a React component responsible for managing the editing
 
 The `PredesignedTests` component is responsible for fetching and displaying a list of pre-built assessments in a grid view. It supports infinite scrolling to load additional assessments as the user scrolls down. The component leverages custom hooks, context, and utility components to achieve its functionality.
 
+- **File Path:** `\hr-frontend\src\components\tests\PredesignedTests.js`
 - **Dependencies**
     - `useFetchPreBuiltAssessments`: Fetches pre-built assessments and manages loading states.
     - `AuthContext`: Provides `isSuperUser` to determine if the user can edit assessments.
@@ -494,6 +499,7 @@ The `PredesignedTests` component is responsible for fetching and displaying a li
 
 The `TestBuilder.js` file is responsible for building and managing tests or assessments in the application. It allows users to create, update, delete, and manage questions for a test or prebuilt assessment. The component supports various question types and integrates with a backend API to fetch, save, and update questions.
 
+- **File Path:** `\hr-frontend\src\components\tests\TestBuilder.js`
 - **Dependencies**:
   - `ReactQuill`: Rich text editor for question content.
   - `ReactSelect`: Dropdown component for selecting answer formats and difficulty levels.
@@ -661,6 +667,7 @@ The `TestBuilder.js` file is responsible for building and managing tests or asse
 
 The `TestViewer.js` file is designed to display and interact with a test or assessment in a user-friendly interface. It fetches test details, including questions, difficulty levels, and metadata , and renders them in a structured layout. The component allows users to navigate through questions, view their details, and interact with answer formats. 
 
+- **File Path:** `\hr-frontend\src\components\tests\TestViewer.js`
 - **Dependencies**:
    - `axios`: Used for making HTTP requests (not directly used in this file but imported).
    - `react-quill`: Renders rich text content for questions.
@@ -711,5 +718,24 @@ The `TestViewer.js` file is designed to display and interact with a test or asse
 - **Parameters**:
   - `question` (Object): The question object to display.
   - `index` (Number): The index of the question in the `questions` array.
+
+---
+---
+
+## Download Template Button
+
+The `DownloadTemplateButton.js` file is designed to provide a button that, when clicked, generates and downloads an Excel template for creating questions. This template includes predefined headers and sample rows to guide users in formatting their data correctly.
+
+- **File Path:** `\hr-frontend\src\components\tests\excel-upload\DownloadTemplateButton.js`
+- **Dependencies**:
+    - `xlsx`: Used to create and manipulate Excel files.
+
+### Functions and Methods
+
+1. `downloadTemplate`
+- **Purpose**:
+    - Generates an Excel file with predefined headers and sample rows, then triggers a download of the file.
+    - Creates an Excel file in memory using the `xlsx` library.
+    - Triggers a file download in the browser.
 
 ---
