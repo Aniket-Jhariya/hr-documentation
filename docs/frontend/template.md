@@ -9,7 +9,7 @@ sidebar_position: 100
 | Variable Name|Purpose|
 |---|---|
 
-- **File Path:** `\hr-frontend\src\components\`
+- **File Path:** `\hr-frontend\src\utils\.js`
 
 
 Here is a table summarizing the CSS statements and their purposes:

@@ -6,7 +6,7 @@ sidebar_position: 1
 
 The `AssessmentCard.js` file renders a card displaying details of an assessment. It is part of a larger React project, likely used in a user interface where assessments are listed and managed. The component supports viewing, editing, and publishing/unpublishing assessments, depending on the user's permissions. It also integrates with a custom hook (`usePublishPreBuiltAssessment`) to handle the publishing logic.
 
-
+- **File Path:** `\hr-frontend\src\utils\cards\AssessmentCard.js`
 - **Dependencies**
     - `@heroicons/react/24/outline`: Provides icons used in the UI (e.g., `ChevronDoubleRightIcon`, `ClockIcon`, `EllipsisVerticalIcon`, `EyeIcon`, `PencilIcon`).
     - `react-router-dom`: Used for navigation via the `Link` component.
@@ -42,6 +42,8 @@ The `AssessmentCard.js` file renders a card displaying details of an assessment.
 
 The `KpiCard.js` file is a utility component in a React project designed to display Key Performance Indicator (KPI) metrics. It is a reusable, presentational component that renders a card with a title and a corresponding value. The component is styled using Tailwind CSS and is intended to be used across the application to consistently display KPI data.
 
+- **File Path:** `\hr-frontend\src\utils\cards\KpiCard.js`
+
 ### Props
 |Prop Name| Description|
 |---|---|
@@ -73,6 +75,8 @@ The `KpiCard` component is a functional React component that renders a styled ca
 
 The `RecentApplicantCard.js` file is a React functional component that renders a card displaying information about a recent applicant. This component is designed to be reusable and is likely used in a dashboard or list view to present key details such as the applicant's title, date, and time. It is styled using Tailwind CSS for a clean and responsive design.
 
+- **File Path:** `\hr-frontend\src\utils\cards\RecentApplicantCard.js`
+
 ### Props
 |Prop Name| Description|
 |---|---|
@@ -96,6 +100,8 @@ The `RecentApplicantCard.js` file is a React functional component that renders a
 ## Top Location Card
 
 The `TopLocationCard.js` file renders a card displaying key information about a top location. It is designed to present a title, a primary value, and a count of applicants in a visually appealing and structured format. This component is likely used in a dashboard or analytics section of the HR frontend application to highlight important metrics.
+
+- **File Path:** `\hr-frontend\src\utils\cards\TopLocationCard.js`
 
 ### Props
 |Prop Name| Description|
@@ -125,6 +131,8 @@ The `TopLocationCard.js` file renders a card displaying key information about a 
 ## Top Skills Card
 
 The `TopSkillsCard.js` file is to display a card that showcases the top skills of applicants. It is a reusable UI component that takes in a `title` and a `value` (an array of skills with their respective counts) as props and renders them.
+
+- **File Path:** `\hr-frontend\src\utils\cards\TopSkillsCard.js`
 
 ### Props
 |Prop Name| Description|
