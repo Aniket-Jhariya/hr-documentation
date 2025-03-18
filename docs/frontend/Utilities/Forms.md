@@ -6,7 +6,7 @@ sidebar_position: 8
 
 The `JobForm.js` file is responsible for rendering and managing a form used to create or edit job postings within the HR frontend application to provide a rich user interface for input fields such as job descriptions, skills, and notifications. The form handles user input, updates the state, and submits data to a parent component via a callback function.
 
-
+- **File Path:** `\hr-frontend\src\utils\forms\JobForm.js`
 - **Dependencies**:
     - `react-select/creatable`: Provides a customizable dropdown for selecting and creating skills.
     - `react-quill`: Rich text editor for job descriptions.
