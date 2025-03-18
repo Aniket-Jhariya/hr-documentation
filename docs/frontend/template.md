@@ -15,7 +15,7 @@ sidebar_position: 1
 Here is a table summarizing the CSS statements and their purposes:
 
 | CSS Statement | Purpose |
-|--------------|---------|
+|---------------|---------|
 
 
 
