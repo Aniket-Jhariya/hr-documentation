@@ -6,6 +6,8 @@ sidebar_position: 14
 
 The `ProgressBar` component represents the progress of a user through a series of steps or questions. It calculates the progress percentage based on the current step index and the total number of steps, and renders a dynamic progress bar that updates as the user progresses.
 
+- **File Path:** `\hr-frontend\src\utils\progressbar\ProgressBar.js`
+
 ### Props
 |Prop Name| Description|
 |---|---|
